@@ -1,0 +1,12 @@
+{
+  "name": "fitmylife",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Life-aware, privacy-first product and service recommendations.",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  }
+}
