@@ -17,9 +17,12 @@
 boucle séquentielle par point`, `P2-1 — Règle GPU/épaisseur interne` et
 `P2-PUB-1 — Actualisation des README racine avant publication` sont `CLOSED`.
 La publication de Phase 2 est en `VERIFY` via la branche `codex/phase-2` et la
-PR brouillon n° 4. Les trois premiers commits sont réels et leur premier run
-CI est réussi. Aucun merge, passage en prête ou suppression de branche n'est
-autorisé. L'audit global de Phase 2 reste conforme. P2-1 reste une règle
+PR brouillon n° 4. La branche contient la publication contrôlée et les
+corrections documentaires issues des audits Work. Git et GitHub restent les
+sources de vérité pour le HEAD courant, le nombre courant de commits et le
+dernier run CI. Une CI réussie sur le HEAD courant est requise avant toute
+validation de merge. Aucun merge, passage en prête ou suppression de branche
+n'est autorisé. L'audit global de Phase 2 reste conforme. P2-1 reste une règle
 interne étroite, avec 27 tests dédiés et une baseline locale validée de 47
 tests au total. Les README racine sont actualisés et vérifiés ; les README du
 package restent cohérents. Chaque point validé doit suivre des missions
