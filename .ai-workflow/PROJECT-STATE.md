@@ -13,7 +13,7 @@
 
 **Phase :** `CLOSE`
 
-Le contrat API TypeScript public de Phase 0 est fermé. La première vague de traduction française et les corrections documentaires associées ont été vérifiées et l'étape est fermée. Le renommage local vers le dépôt `FitMyLife/` et la réparation manuelle de la jonction npm sont vérifiés et fermés. Le renommage GitHub vers `FitMyLife` et la visibilité privée ont été vérifiés par Work et sont formellement fermés ; la permission administrateur et le remote local correct sont confirmés. La Phase 0 est terminée et validée par l'utilisateur ; sa publication a été portée par la PR n° 1. La passerelle interne `My Stuff` GPU/boîtier de Phase 1 est terminée, vérifiée et validée par l'utilisateur : elle reste étroite, en mémoire, délègue entièrement à `evaluateGpuCaseLength` et ne modifie pas l'API publique. La PR n° 2 constitue son véhicule de publication et le squash merge autorisé ; l'état exact du résultat est la source de vérité de Git et GitHub et cet état documentaire devient canonique sur `main` après le merge. La suite officielle contient 20 tests et la CI durable valide les futures pull requests vers `main`. Aucune liste exhaustive auto-référentielle des commits de branche ni aucun hash futur de clôture n'est figé ici. La phase courante du workflow est `CLOSE`. Aucune Phase 2 n'a commencé. La prochaine mission distincte est l'inspection de la présentation bilingue de l'accueil GitHub, en conservant l'anglais comme version canonique et `README.fr.md` comme miroir français.
+Le contrat API TypeScript public de Phase 0 est fermé. La première vague de traduction française et les corrections documentaires associées ont été vérifiées et l'étape est fermée. Le renommage local vers le dépôt `FitMyLife/` et la réparation manuelle de la jonction npm sont vérifiés et fermés. Le renommage GitHub vers `FitMyLife` et la visibilité privée ont été vérifiés par Work et sont formellement fermés ; la permission administrateur et le remote local correct sont confirmés. La Phase 0 est terminée et validée par l'utilisateur ; sa publication a été portée par la PR n° 1. La passerelle interne `My Stuff` GPU/boîtier de Phase 1 est terminée, vérifiée et validée par l'utilisateur : elle reste étroite, en mémoire, délègue entièrement à `evaluateGpuCaseLength` et ne modifie pas l'API publique. La PR n° 2 constitue son véhicule de publication et son squash merge est enregistré par Git et GitHub. La suite officielle contient 20 tests et la CI durable valide les futures pull requests vers `main`. Aucune liste exhaustive auto-référentielle des commits de branche ni aucun hash futur de clôture n'est figé ici. L'accueil GitHub bilingue est terminé, vérifié et validé par l'utilisateur : les résumés anglais et français sont directement visibles, `README.md` reste canonique en anglais et `README.fr.md` reste le miroir français complet. La PR n° 3 constitue son véhicule de publication et son squash merge autorisé rend cet état canonique sur `main` après le merge ; Git et GitHub restent la source de vérité du commit résultant. La description GitHub et les topics restent inchangés ; aucun tag ni release n'a été créé. La phase courante du workflow est `CLOSE`. Aucun contenu de Phase 2 n'est commencé. La prochaine étape est une nouvelle mission `INSPECT` avant toute décision de Phase 2.
 
 **Dernière mise à jour :** 2026-08-17
 
@@ -62,7 +62,7 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 - `docs/decision-framework.md` : séquence de décision, contraintes bloquantes, dimensions et sorties ; aucune question de contournement ajoutée.
 - `docs/architecture.md` : flux centré sur le besoin, contextes futurs, `Financial Fit` futur et distinction entre structure actuelle et architecture future.
 - `docs/privacy-and-security.md` : nuances sur le consentement, le stockage navigateur, le chiffrement applicatif envisagé, la résilience à une compromission et le No Trust by Default.
-- `README.md` : navigation vers la documentation produit et clarification de l'ordre historique d'implémentation.
+- `README.md` : introduction bilingue compacte de l'accueil GitHub, navigation vers la documentation produit et clarification de l'ordre historique d'implémentation.
 - `packages/compatibility-engine/README.md` : contrat API TypeScript public de Phase 0, usage, types, statuts, codes, preuves, marge, invalidité et limites.
 - `README.fr.md` : miroir français du README racine.
 - `docs/fr/` : miroirs français de la vision produit, du périmètre et de la roadmap, du cadre de décision, de l'architecture et de la confidentialité/sécurité.
@@ -91,14 +91,14 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 
 **Étape formellement fermée :** préparation documentaire de la publication Phase 0, vérifiée par Work.
 
-**Prochaine étape attendue :** nouvelle mission `INSPECT` consacrée à la présentation bilingue de l'accueil GitHub, avec l'anglais canonique et `README.fr.md` comme miroir français.
+**Prochaine étape attendue :** nouvelle mission `INSPECT` avant toute décision de Phase 2.
 
 **Étape formellement fermée :** implémentation, vérification et validation utilisateur de la passerelle minimale `My Stuff` GPU/boîtier. La Phase 1 est terminée ; la PR n° 2 en constitue le véhicule de publication et le squash merge autorisé.
 
 **Exclusions de publication :** `AGENTS.md`, `BOOTSTRAP-CODEX.txt`, `BOOTSTRAP-WORK.txt`, `node_modules/`, `dist/`, caches, fichiers temporaires, secrets et autres artefacts locaux ignorés.
 **Hors périmètre actuel :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat et toute fonctionnalité de Phase 2. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant.
 
-Ne pas commencer de fonctionnalité de Phase 2. La prochaine mission porte uniquement sur l'inspection de la présentation bilingue de l'accueil GitHub.
+Ne pas commencer de fonctionnalité de Phase 2. La prochaine mission doit être une nouvelle `INSPECT` dédiée à l'état réel du projet avant toute décision produit ou technique.
 
 **Manifeste Phase 0 validé pour publication :**
 
@@ -123,10 +123,10 @@ Les risques produit, techniques et de sécurité sont désormais recensés dans 
 
 **Date :** 2026-08-17
 
-**Type :** clôture contrôlée de la Phase 1
-**Statut :** `CLOSE — PHASE 1 TERMINÉE ET VALIDÉE`
+**Type :** clôture contrôlée de l'accueil GitHub bilingue
+**Statut :** `CLOSE — ACCUEIL GITHUB BILINGUE TERMINÉ ET VALIDÉ`
 
-Le dépôt `FitMyLife/` et la racine Git sont cohérents. La passerelle interne `My Stuff` GPU/boîtier a été implémentée, vérifiée et validée par l'utilisateur avec des contrats étroits en mémoire, une délégation complète à `evaluateGpuCaseLength`, aucune mutation et aucune modification de l'API publique. La commande officielle `npm test` exécute 20 tests, dont 10 tests Phase 0 et 10 tests de la passerelle. La PR n° 2 constitue le véhicule de publication de cette tranche ; son squash merge autorisé et son résultat exact sont la source de vérité de Git et GitHub. La CI durable est configurée pour les futures pull requests vers `main`. La Phase 1 est fermée ; aucune Phase 2 n'a commencé. La prochaine mission distincte est l'inspection de la présentation bilingue de l'accueil GitHub.
+Le dépôt `FitMyLife/` et la racine Git sont cohérents. La passerelle interne `My Stuff` GPU/boîtier de Phase 1 reste terminée, vérifiée et validée par l'utilisateur ; la Phase 1 est fermée et aucune Phase 2 n'a commencé. L'introduction compacte de l'accueil GitHub rend directement visibles les résumés anglais et français, conserve l'anglais comme canonique et conserve `README.fr.md` comme miroir français complet. La PR n° 3 constitue le véhicule de publication de cette étape et son squash merge autorisé rend cet état canonique sur `main` après le merge. Git et GitHub restent la source de vérité du commit résultant ; aucun hash futur ni total auto-référentiel de commits n'est figé. La description GitHub et les topics restent inchangés, aucun tag ou release n'a été créé, et aucune Phase 2 n'a commencé. La prochaine étape est une nouvelle mission `INSPECT` avant toute décision de Phase 2.
 
 ## Règles de mise à jour
 
