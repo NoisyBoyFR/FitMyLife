@@ -11,39 +11,23 @@
 
 ## 2. Phase actuelle du workflow
 
-**Phase :** `VERIFY`
+**Phase :** `CLOSE`
 
 **État courant autoritatif :** les points `P2-0 — Formalisation durable de la
 boucle séquentielle par point`, `P2-1 — Règle GPU/épaisseur interne` et
 `P2-PUB-1 — Actualisation des README racine avant publication` sont `CLOSED`.
-La publication de Phase 2 est en `VERIFY` via la branche `codex/phase-2` et la
-PR brouillon n° 4. La branche contient la publication contrôlée et les
-corrections documentaires issues des audits Work. Git et GitHub restent les
-sources de vérité pour le HEAD courant, le nombre courant de commits et le
-dernier run CI. Une CI réussie sur le HEAD courant est requise avant toute
-validation de merge. Aucun merge, passage en prête ou suppression de branche
-n'est autorisé. L'audit global de Phase 2 reste conforme. P2-1 reste une règle
-interne étroite, avec 27 tests dédiés et une baseline locale validée de 47
-tests au total. Les README racine sont actualisés et vérifiés ; les README du
-package restent cohérents. Chaque point validé doit suivre des missions
-distinctes `EXECUTE`, `VERIFY` et `CLOSE` ; une validation échouée conserve le
-même point jusqu'à correction et nouvelle vérification. Un seul point peut être
-actif à la fois et aucun passage au point suivant n'est automatique.
-
-La règle GPU/épaisseur validée et fermée reste une règle interne. La branche
-`codex/phase-2` et la PR brouillon n° 4 portent la publication contrôlée ; la
-PR reste ouverte et non fusionnée. L'API publique observée reste limitée à
-`evaluateGpuCaseLength` ; aucune API publique nouvelle, agrégation, autre
-contrainte ou nouvelle dépendance n'est autorisée.
-
-La prochaine séquence attendue est la vérification Work de la PR brouillon n° 4
-puis, uniquement si elle est conforme, une décision utilisateur explicite et
-distincte concernant le merge.
-Aucun P2-2 ne peut être créé ni activé. La Phase 2 produit n'est pas
-globalement fermée ; sa fermeture future reste distincte de la fermeture de
-P2-1. Tout passage en prête, merge ou suppression de branche reste soumis à
-une autorisation distincte.
-L'arrêt est obligatoire à la fin de chaque phase.
+La Phase 2 est validée par Work et par l'utilisateur ; l'autorisation explicite
+du squash merge est enregistrée. La PR brouillon n° 4 est son véhicule de
+publication et la Phase 2 sera fermée lorsque cet état documentaire sera
+présent sur `main` par le merge de cette PR. Git et GitHub restent les sources
+de vérité pour le squash commit et l'état exact du merge. La baseline validée
+comprend 47 tests, dont 27 tests P2-1. La règle GPU/épaisseur reste interne,
+l'API publique reste limitée à `evaluateGpuCaseLength`, et aucune agrégation,
+nouvelle contrainte ou dépendance n'est autorisée. Aucun P2-2 n'a commencé.
+Chaque point validé reste soumis aux missions distinctes `EXECUTE`, `VERIFY`
+et `CLOSE`, et aucun point n'est actif. Après la clôture réussie, la prochaine
+mission est une nouvelle mission `INSPECT`, distincte, avant toute décision de
+Phase 3. L'arrêt est obligatoire après la clôture de la Phase 2.
 
 Les éléments historiques détaillés dans la description qui suit ne remplacent
 pas cet état courant.
@@ -135,9 +119,9 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 
 ### État courant de la boucle
 
-- Phase workflow : `VERIFY`.
+- Phase workflow : `CLOSE`.
 - Aucun point actif.
-- Statut : P2-PUB-1 fermé ; publication Phase 2 en vérification Work via la PR brouillon n° 4.
+- Statut : Phase 2 validée par Work et par l'utilisateur ; clôture portée par la PR n° 4.
 - P2-0 : `CLOSED`.
 - P2-1 : `CLOSED`.
 - P2-PUB-1 : `CLOSED`.
@@ -147,15 +131,15 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 - Tous les points actuellement validés de Phase 2 sont fermés.
 - Un seul point peut être actif à la fois.
 - Aucun passage automatique au point suivant n'est autorisé.
-- Les changements Phase 2 sont publiés sur `codex/phase-2` et portés par la PR brouillon n° 4.
+- La branche `codex/phase-2` et la PR n° 4 portent la publication contrôlée ; le squash merge autorisé est le véhicule de clôture.
 - La règle GPU/épaisseur est validée, fermée et reste interne.
 - La baseline locale validée est de 47 tests, dont 27 tests P2-1.
 - L'API publique reste limitée à `evaluateGpuCaseLength`.
 - Aucune agrégation, autre contrainte ou nouvelle dépendance n'est autorisée.
-- La PR Phase 2 reste ouverte et non fusionnée ; aucun passage en prête n'est autorisé.
+- La PR n° 4 reste le véhicule du squash merge autorisé ; Git et GitHub feront foi pour son résultat exact.
 - Aucune autre contrainte PC, agrégation ou nouvelle fonctionnalité Phase 2 n'est autorisée.
-- La Phase 2 produit n'est pas encore globalement fermée.
-- La prochaine étape est la vérification Work de la PR brouillon n° 4.
+- La Phase 2 est fermée lorsque cet état documentaire est présent sur `main` par le merge de la PR n° 4.
+- La prochaine mission après clôture réussie est une nouvelle mission `INSPECT`, avant toute décision de Phase 3.
 
 **Étape terminée :** conception, documentation, tests et vérification du contrat API TypeScript public de Phase 0, puis création et vérification de la première vague de miroirs français et correction des deux baselines anglaises obsolètes.
 
@@ -170,9 +154,9 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 **Étape formellement fermée :** implémentation, vérification et validation utilisateur de la passerelle minimale `My Stuff` GPU/boîtier. La Phase 1 est terminée ; la PR n° 2 en constitue le véhicule de publication et le squash merge autorisé.
 
 **Exclusions de publication :** `AGENTS.md`, `BOOTSTRAP-CODEX.txt`, `BOOTSTRAP-WORK.txt`, `node_modules/`, `dist/`, caches, fichiers temporaires, secrets et autres artefacts locaux ignorés.
-**Hors périmètre non autorisé au stade courant :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat, toute nouvelle fonctionnalité Phase 2, tout passage en prête, merge ou suppression de branche. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant ; P2-1 reste une règle interne étroite et fermée.
+**Hors périmètre non autorisé au stade courant :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat, toute nouvelle fonctionnalité Phase 2, toute opération Git ou GitHub hors du squash merge autorisé et de la suppression conditionnelle prévue. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant ; P2-1 reste une règle interne étroite et fermée.
 
-Ne pas commencer de nouvelle fonctionnalité Phase 2 ni d'autre contrainte PC. La prochaine étape attendue est la vérification Work de la PR brouillon n° 4 ; aucun P2-2 ne peut commencer.
+Ne pas commencer de nouvelle fonctionnalité Phase 2 ni d'autre contrainte PC. Après la clôture réussie, la prochaine mission attendue est une nouvelle mission `INSPECT` avant toute décision de Phase 3 ; aucun P2-2 ne peut commencer.
 
 **Manifeste Phase 0 validé pour publication :**
 
@@ -195,34 +179,21 @@ Les risques produit, techniques et de sécurité sont désormais recensés dans 
 
 ## 9. Dernier rapport Codex
 
-### Rapport courant — publication Phase 2 en PR brouillon
+### Rapport courant — clôture Phase 2 avant merge
 
-P2-0, P2-1 et P2-PUB-1 sont fermés et l'audit global de Phase 2 est conforme.
-La publication initiale de Phase 2 a été structurée en quatre commits validés
-sur la branche `codex/phase-2`, dont le HEAD initial de publication était
-`04e8f644ec24691ff415b5a5da42c237659a5e40`. La branche et la PR brouillon n° 4
-portent la publication ainsi qu'une correction documentaire ciblée ajoutée
-après l'audit Work. Git et GitHub restent les sources de vérité pour le HEAD
-exact de la branche et de la PR, le nombre courant de commits, le dernier run
-CI et le futur squash commit. Une CI réussie sur le HEAD courant de la PR est
-une précondition de validation ; son identifiant n'est pas figé ici.
+P2-0, P2-1 et P2-PUB-1 sont fermés et la Phase 2 est validée par Work et par
+l'utilisateur. La PR n° 4 est le véhicule de publication et l'autorisation
+explicite de son squash merge est enregistrée. Cet état de `CLOSE` devient
+canonique lorsque ce document est présent sur `main` par le merge ; Git et
+GitHub restent les sources de vérité pour le squash commit et l'état exact du
+merge.
 
-Les README racine sont actualisés et vérifiés ; les README du package restent
-cohérents. La baseline locale validée est de 47 tests, dont 27 tests dédiés à
-P2-1. La phase workflow est `VERIFY` pour la vérification Work de la PR. La
-boucle durable impose un plan de phase validé, un seul point actif, des
-missions séparées `EXECUTE`, `VERIFY` et `CLOSE`, une analyse Work entre les
-missions, une correction ciblée suivie d'une nouvelle vérification en cas
-d'échec et un arrêt en fin de phase.
-
-La règle GPU/épaisseur, son test et la modification du script de test sont
-publiés dans la PR brouillon ; la règle reste interne et aucun consommateur
-applicatif n'a été ajouté. L'API publique reste limitée à
-`evaluateGpuCaseLength`. Aucun merge, passage en prête, suppression de branche
-ou autre publication n'est autorisé. Aucun point produit supplémentaire n'est
-actif ; la prochaine séquence est la vérification Work de la PR puis, uniquement
-si elle est conforme, une décision utilisateur explicite et distincte
-concernant le merge. La fermeture de P2-PUB-1 ne ferme pas la Phase 2 produit.
+La baseline validée est de 47 tests, dont 27 tests dédiés à P2-1. La règle
+GPU/épaisseur reste interne, l'API publique reste limitée à
+`evaluateGpuCaseLength`, et aucune agrégation, nouvelle contrainte ou
+dépendance n'est ajoutée. Aucun P2-2 n'a commencé. Après la clôture réussie,
+la prochaine mission est une nouvelle mission `INSPECT`, distincte, avant toute
+décision de Phase 3. L'arrêt est obligatoire après la clôture de la Phase 2.
 
 ### Rapport historique précédent
 
