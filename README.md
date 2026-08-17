@@ -59,7 +59,7 @@ For a new Work conversation, start by reading `.ai-workflow/START-HERE.md` and t
 
 ## Current workspace verification
 
-The local workspace is the `FitMyLife/` repository. The former local folder name is retained only as historical context. The local rename and npm environment repair were performed manually, verified, and closed. The GitHub rename to `NoisyBoyFR/FitMyLife` and its private visibility have been verified and formally closed; the local remote is correct. Phase 0 has been published on the dedicated `codex/phase-0` branch in commits `aebc2a0` and `3141c2b`, with draft PR [#1](https://github.com/NoisyBoyFR/FitMyLife/pull/1). The PR remains open for Work verification and user validation; no merge has occurred.
+The local workspace is the `FitMyLife/` repository. The former local folder name is retained only as historical context. The local rename and npm environment repair were performed manually, verified, and closed. The GitHub rename to `NoisyBoyFR/FitMyLife` and its private visibility have been verified and formally closed; the local remote is correct. Phase 0 has been published on the dedicated `codex/phase-0` branch: `aebc2a0` and `3141c2b` are the two substantive commits, followed by `82dc928` recording the publication state, with draft PR [#1](https://github.com/NoisyBoyFR/FitMyLife/pull/1). The PR remains open for Work verification and user validation; no merge has occurred.
 
 ## Status
 

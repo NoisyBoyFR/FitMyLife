@@ -59,7 +59,7 @@ Pour une nouvelle conversation Work, commencer par lire `.ai-workflow/START-HERE
 
 ## Vérification du workspace actuel
 
-Le workspace local est le dépôt `FitMyLife/`. L'ancien nom local du dossier est conservé uniquement comme contexte historique. Le renommage local et la réparation de l'environnement npm ont été effectués manuellement, vérifiés et fermés. Le renommage GitHub vers `NoisyBoyFR/FitMyLife` et sa visibilité privée ont été vérifiés et formellement fermés ; le remote local est correct. La Phase 0 a été publiée sur la branche dédiée `codex/phase-0` dans les commits `aebc2a0` et `3141c2b`, avec la PR brouillon [n° 1](https://github.com/NoisyBoyFR/FitMyLife/pull/1). La PR reste ouverte pour vérification par Work et validation utilisateur ; aucun merge n'a eu lieu.
+Le workspace local est le dépôt `FitMyLife/`. L'ancien nom local du dossier est conservé uniquement comme contexte historique. Le renommage local et la réparation de l'environnement npm ont été effectués manuellement, vérifiés et fermés. Le renommage GitHub vers `NoisyBoyFR/FitMyLife` et sa visibilité privée ont été vérifiés et formellement fermés ; le remote local est correct. La Phase 0 a été publiée sur la branche dédiée `codex/phase-0` : `aebc2a0` et `3141c2b` sont les deux commits substantiels, suivis de `82dc928` qui enregistre l'état de publication, avec la PR brouillon [n° 1](https://github.com/NoisyBoyFR/FitMyLife/pull/1). La PR reste ouverte pour vérification par Work et validation utilisateur ; aucun merge n'a eu lieu.
 
 ## Statut
 
