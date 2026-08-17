@@ -1,8 +1,10 @@
 # FitMyLife
 
-> [Version française](README.fr.md) — English remains the canonical documentation.
+> **English — canonical** · [**Français — documentation complète**](README.fr.md)
 
-FitMyLife helps people choose products and services that fit their real life—not merely their technical requirements.
+**English:** FitMyLife helps people choose products and services that fit their real life—not merely their technical requirements.
+
+**Français :** FitMyLife aide les personnes à choisir des produits et services adaptés à leur vie réelle, et pas uniquement à leurs exigences techniques.
 
 ## Product direction
 
