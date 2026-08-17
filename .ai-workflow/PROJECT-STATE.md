@@ -13,7 +13,7 @@
 
 **Phase :** `CLOSE`
 
-Le contrat API TypeScript public de Phase 0 est fermé. La première vague de traduction française et les corrections documentaires associées ont été vérifiées et l'étape est fermée. Le renommage local vers le dépôt `FitMyLife/` et la réparation manuelle de la jonction npm sont vérifiés et fermés. Le renommage GitHub vers `FitMyLife` et la visibilité privée ont été vérifiés par Work et sont formellement fermés ; la permission administrateur et le remote local correct sont confirmés. La Phase 0 est terminée et validée par l'utilisateur. La PR n° 1 constitue son véhicule de publication et sa clôture GitHub s'effectue par le squash merge autorisé. Cet état de clôture est canonique lorsqu'il est présent sur `main` après le merge ; Git et GitHub restent la source de vérité du commit exact résultant. Aucune liste exhaustive auto-référentielle des commits de branche ni aucun hash futur de clôture n'est figé ici. Aucune fonctionnalité de Phase 1 n'est validée ou commencée.
+Le contrat API TypeScript public de Phase 0 est fermé. La première vague de traduction française et les corrections documentaires associées ont été vérifiées et l'étape est fermée. Le renommage local vers le dépôt `FitMyLife/` et la réparation manuelle de la jonction npm sont vérifiés et fermés. Le renommage GitHub vers `FitMyLife` et la visibilité privée ont été vérifiés par Work et sont formellement fermés ; la permission administrateur et le remote local correct sont confirmés. La Phase 0 est terminée et validée par l'utilisateur ; sa publication a été portée par la PR n° 1. La passerelle interne `My Stuff` GPU/boîtier de Phase 1 est terminée, vérifiée et validée par l'utilisateur : elle reste étroite, en mémoire, délègue entièrement à `evaluateGpuCaseLength` et ne modifie pas l'API publique. La PR n° 2 constitue son véhicule de publication et le squash merge autorisé ; l'état exact du résultat est la source de vérité de Git et GitHub et cet état documentaire devient canonique sur `main` après le merge. La suite officielle contient 20 tests et la CI durable valide les futures pull requests vers `main`. Aucune liste exhaustive auto-référentielle des commits de branche ni aucun hash futur de clôture n'est figé ici. La phase courante du workflow est `CLOSE`. Aucune Phase 2 n'a commencé. La prochaine mission distincte est l'inspection de la présentation bilingue de l'accueil GitHub, en conservant l'anglais comme version canonique et `README.fr.md` comme miroir français.
 
 **Dernière mise à jour :** 2026-08-17
 
@@ -27,7 +27,7 @@ Le contrat API TypeScript public de Phase 0 est fermé. La première vague de tr
 
 **État publié :** les documents, la configuration npm et le Compatibility Engine de Phase 0 sont suivis dans le périmètre publié. `node_modules/` et `dist/` restent ignorés ; les trois fichiers locaux exclus restent non suivis et ne font pas partie du projet publié.
 
-La branche historique `codex/phase-0` a porté la publication contrôlée et la PR n° 1. Le squash merge autorisé vers `main` clôture cette publication ; son résultat exact doit être lu dans Git et GitHub. Aucun tag, release, issue ou changement de visibilité n'est requis par cette clôture. La prochaine phase doit commencer par une nouvelle mission `INSPECT` ; aucune fonctionnalité de Phase 1 n'est encore validée ou commencée.
+La branche historique `codex/phase-0` a porté la publication contrôlée et la PR n° 1. Son résultat exact est consultable dans Git et GitHub. Aucun tag, release, issue ou changement de visibilité n'est requis par cette clôture. La passerelle interne GPU/boîtier est la seule tranche de Phase 1 implémentée ; l'étape technique et la validation de sa publication sont fermées. La PR n° 2 constitue le véhicule de publication de la Phase 1 et son squash merge autorisé rend cet état canonique sur `main`. Git et GitHub restent la source de vérité du commit de squash ; aucune liste exhaustive auto-référentielle des commits ni aucun hash futur n'est fixé ici. Aucun contenu de Phase 2 n'est commencé.
 
 ## 4. État technique réellement observé
 
@@ -37,6 +37,8 @@ La branche historique `codex/phase-0` a porté la publication contrôlée et la 
 - Backlog dans `TASKS.md`.
 - Une tranche exécutable et testée du `Compatibility Engine` existe dans `packages/compatibility-engine/` : longueur GPU candidate contre espace GPU effectif du boîtier.
 - Cette tranche comprend un modèle TypeScript minimal, une fonction pure, 10 tests Node natifs et des scripts npm de typecheck/test.
+- La Phase 1 ajoute une passerelle interne étroite entre deux faits `My Stuff` en mémoire — longueur du GPU candidat et espace GPU effectif du boîtier existant — et `evaluateGpuCaseLength`. Elle ne duplique aucune validation ni règle métier, ne modifie pas l'API publique et ajoute 10 tests ciblés séparés.
+- La commande officielle `npm test` exécute désormais les 20 tests de la tranche : 10 tests Phase 0 et 10 tests de la passerelle Phase 1.
 - Aucun moteur complet, aucune interface produit, aucune intégration fournisseur, aucune persistance et aucune décision d'achat ne sont implémentés.
 - `package.json` définit un workspace npm et Node `>=22` ; TypeScript est la seule dépendance de développement de la tranche.
 
@@ -65,14 +67,15 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 - `README.fr.md` : miroir français du README racine.
 - `docs/fr/` : miroirs français de la vision produit, du périmètre et de la roadmap, du cadre de décision, de l'architecture et de la confidentialité/sécurité.
 - `packages/compatibility-engine/README.fr.md` : miroir français du contrat API public du package.
-- `packages/compatibility-engine/package.json` : manifeste, scripts et format ESM du package.
+- `packages/compatibility-engine/package.json` : manifeste, scripts, format ESM et commande officielle intégrant les deux fichiers de test.
 - `packages/compatibility-engine/tsconfig.json` : configuration TypeScript minimale.
-- `packages/compatibility-engine/src/` : types, codes de raison et évaluation pure de la longueur GPU.
-- `packages/compatibility-engine/test/` : 10 tests ciblés sur les cas valides, bloquants, absents et invalides, exécutés via l'entrée publique du package.
+- `packages/compatibility-engine/src/` : types, codes de raison, évaluation pure de la longueur GPU et passerelle interne `My Stuff` GPU/boîtier.
+- `packages/compatibility-engine/src/my-stuff-gpu-case.ts` : contrats internes étroits et adaptateur pur vers la règle GPU/boîtier existante.
+- `packages/compatibility-engine/test/` : 10 tests publics de Phase 0 et 10 tests ciblés de la passerelle interne, exécutés par la suite officielle de 20 tests sans élargir l'entrée publique du package.
 - `package-lock.json` : verrouillage des dépendances npm minimales.
 - Workspace local actuel : dépôt `FitMyLife/`. L'ancien nom local du dossier est conservé uniquement comme historique documentaire.
 - La jonction `node_modules/@fitmylife/compatibility-engine` est de type `Junction` vers `packages/compatibility-engine`.
-- Depuis une nouvelle tâche correctement rattachée à ce workspace, le build, le typecheck, les 10 tests, l'import public du package et les déclarations TypeScript générées ont réussi.
+- Depuis une nouvelle tâche correctement rattachée à ce workspace, le build, le typecheck, la suite officielle de 20 tests, l'import public du package et les déclarations TypeScript générées ont réussi.
 - Repository canonique : `https://github.com/NoisyBoyFR/FitMyLife`. L'ancien nom `fitmylife` est conservé uniquement comme historique. La publication contrôlée est portée par la PR n° 1 et son squash merge autorisé ; son historique et le commit exact résultant sont consultables dans Git et GitHub.
 - Le renommage GitHub et la visibilité privée sont vérifiés par Work et formellement fermés.
 
@@ -88,12 +91,14 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 
 **Étape formellement fermée :** préparation documentaire de la publication Phase 0, vérifiée par Work.
 
-**Prochaine étape attendue :** nouvelle mission `INSPECT` pour la phase suivante, après cette clôture. Aucune fonctionnalité de Phase 1 n'est validée ou commencée.
+**Prochaine étape attendue :** nouvelle mission `INSPECT` consacrée à la présentation bilingue de l'accueil GitHub, avec l'anglais canonique et `README.fr.md` comme miroir français.
+
+**Étape formellement fermée :** implémentation, vérification et validation utilisateur de la passerelle minimale `My Stuff` GPU/boîtier. La Phase 1 est terminée ; la PR n° 2 en constitue le véhicule de publication et le squash merge autorisé.
 
 **Exclusions de publication :** `AGENTS.md`, `BOOTSTRAP-CODEX.txt`, `BOOTSTRAP-WORK.txt`, `node_modules/`, `dist/`, caches, fichiers temporaires, secrets et autres artefacts locaux ignorés.
-**Hors périmètre actuel :** moteur complet, autres règles PC, `My Stuff`, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM et recommandations d'achat.
+**Hors périmètre actuel :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat et toute fonctionnalité de Phase 2. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant.
 
-Ne pas commencer une fonctionnalité de Phase 1 avant une nouvelle mission `INSPECT` et les arbitrages correspondants.
+Ne pas commencer de fonctionnalité de Phase 2. La prochaine mission porte uniquement sur l'inspection de la présentation bilingue de l'accueil GitHub.
 
 **Manifeste Phase 0 validé pour publication :**
 
@@ -118,10 +123,10 @@ Les risques produit, techniques et de sécurité sont désormais recensés dans 
 
 **Date :** 2026-08-17
 
-**Type :** clôture documentaire de Phase 0 et squash merge autorisé
-**Statut :** `PHASE 0 TERMINÉE ET VALIDÉE — CLÔTURE PAR SQUASH MERGE`
+**Type :** clôture contrôlée de la Phase 1
+**Statut :** `CLOSE — PHASE 1 TERMINÉE ET VALIDÉE`
 
-Le dépôt `FitMyLife/` et la racine Git sont cohérents. Le repository canonique est `https://github.com/NoisyBoyFR/FitMyLife`, l'ancien nom `fitmylife` étant conservé uniquement comme historique. La publication contrôlée est portée par la PR n° 1 et son squash merge autorisé vers `main`. Le build, le typecheck, les 10 tests, l'import public, les déclarations TypeScript et `git diff --check` ont réussi. Git et GitHub doivent être consultés pour l'état courant de la PR et le commit exact résultant ; ce document n'en fige pas le hash. Aucune fonctionnalité de Phase 1 n'est validée ou commencée.
+Le dépôt `FitMyLife/` et la racine Git sont cohérents. La passerelle interne `My Stuff` GPU/boîtier a été implémentée, vérifiée et validée par l'utilisateur avec des contrats étroits en mémoire, une délégation complète à `evaluateGpuCaseLength`, aucune mutation et aucune modification de l'API publique. La commande officielle `npm test` exécute 20 tests, dont 10 tests Phase 0 et 10 tests de la passerelle. La PR n° 2 constitue le véhicule de publication de cette tranche ; son squash merge autorisé et son résultat exact sont la source de vérité de Git et GitHub. La CI durable est configurée pour les futures pull requests vers `main`. La Phase 1 est fermée ; aucune Phase 2 n'a commencé. La prochaine mission distincte est l'inspection de la présentation bilingue de l'accueil GitHub.
 
 ## Règles de mise à jour
 

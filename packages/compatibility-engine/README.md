@@ -36,6 +36,25 @@ The public exports are:
 - `GpuCaseLengthEvidence`;
 - `GpuCaseLengthResult`.
 
+## Internal My Stuff GPU/case bridge
+
+Phase 1 adds a deliberately narrow internal bridge in
+`src/my-stuff-gpu-case.ts`. It represents only the two in-memory facts needed
+for the first My Stuff PC slice:
+
+- a candidate GPU length in millimetres;
+- the effective GPU space available in the existing case, in millimetres.
+
+The bridge maps those facts to `GpuCaseLengthInput` and delegates the complete
+evaluation to `evaluateGpuCaseLength`. It adds no validation, threshold,
+score, warning or compatibility rule of its own. The candidate and case
+objects are treated as read-only and no I/O, persistence or asynchronous work
+is performed.
+
+This bridge is an internal implementation detail. It is not exported from the
+package entry point, does not change the public API, and does not model a
+generic PC or complete `My Stuff` inventory.
+
 ## Input contract
 
 `GpuCaseLengthInput` contains only these two optional facts:
@@ -95,6 +114,7 @@ and `clearanceMm`.
 ## Scope and limits
 
 This package deliberately excludes additional compatibility rules, rule
-aggregation, a generic rules engine, products and offers, `My Stuff`, user
-needs, recommendations, scores, providers, persistence, HTTP, authentication,
-UI, browser extensions, LLMs and localization infrastructure.
+aggregation, a generic rules engine, a generic `My Stuff` model, products and
+offers, user needs, recommendations, scores, providers, persistence, HTTP,
+authentication, UI, browser extensions, LLMs and localization infrastructure.
+The internal bridge is limited to the two GPU/case facts described above.
