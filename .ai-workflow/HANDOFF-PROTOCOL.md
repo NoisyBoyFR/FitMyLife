@@ -159,6 +159,47 @@ Utiliser un statut clair :
 
 ---
 
+# 2 bis. Passation d'une boucle de phase
+
+Lorsqu'un rapport concerne un point d'une phase, il doit permettre à Work de
+préparer la mission suivante sans supposer qu'elle est déjà autorisée.
+
+Le rapport indique explicitement :
+
+- identifiant du point et phase produit ;
+- état du point avant et après la mission ;
+- objectif et périmètre actifs ;
+- exclusions et dépendances ;
+- critères de clôture ;
+- fichiers concernés ;
+- validations réellement exécutées et résultats exacts ;
+- défauts confirmés et corrections effectuées ;
+- limites et blocages ;
+- décisions ou autorisations encore requises ;
+- état Git et opérations Git/GitHub éventuelles ;
+- point suivant prévu, sans l'autoriser.
+
+La passation distingue clairement les états suivants :
+
+- point proposé ;
+- point validé par l'utilisateur ;
+- point exécuté ;
+- point vérifié ;
+- point fermé ;
+- phase globalement fermée.
+
+Un rapport `EXECUTE` rend la main à Work. Work analyse ce rapport et prépare,
+si nécessaire, une mission distincte `VERIFY`. Un verdict `À CORRIGER` conserve
+le même point actif ; une nouvelle mission ciblée puis une nouvelle vérification
+sont obligatoires. Un verdict `VALIDÉ` ne ferme pas automatiquement le point :
+une mission `CLOSE` distincte est requise.
+
+La fermeture de tous les points ne ferme pas automatiquement la phase : l'audit
+global, la publication contrôlée, la validation utilisateur du merge et la
+clôture de phase restent des étapes distinctes.
+
+---
+
 # 3. Work analyse le rapport, il ne le paraphrase pas seulement
 
 Après réception d'un rapport, Work doit vérifier :

@@ -13,7 +13,28 @@
 
 **Phase :** `CLOSE`
 
-Le contrat API TypeScript public de Phase 0 est fermé. La première vague de traduction française et les corrections documentaires associées ont été vérifiées et l'étape est fermée. Le renommage local vers le dépôt `FitMyLife/` et la réparation manuelle de la jonction npm sont vérifiés et fermés. Le renommage GitHub vers `FitMyLife` et la visibilité privée ont été vérifiés par Work et sont formellement fermés ; la permission administrateur et le remote local correct sont confirmés. La Phase 0 est terminée et validée par l'utilisateur ; sa publication a été portée par la PR n° 1. La passerelle interne `My Stuff` GPU/boîtier de Phase 1 est terminée, vérifiée et validée par l'utilisateur : elle reste étroite, en mémoire, délègue entièrement à `evaluateGpuCaseLength` et ne modifie pas l'API publique. La PR n° 2 constitue son véhicule de publication et son squash merge est enregistré par Git et GitHub. La suite officielle contient 20 tests et la CI durable valide les futures pull requests vers `main`. Aucune liste exhaustive auto-référentielle des commits de branche ni aucun hash futur de clôture n'est figé ici. L'accueil GitHub bilingue est terminé, vérifié et validé par l'utilisateur : les résumés anglais et français sont directement visibles, `README.md` reste canonique en anglais et `README.fr.md` reste le miroir français complet. La PR n° 3 constitue son véhicule de publication et son squash merge autorisé rend cet état canonique sur `main` après le merge ; Git et GitHub restent la source de vérité du commit résultant. La description GitHub et les topics restent inchangés ; aucun tag ni release n'a été créé. La phase courante du workflow est `CLOSE`. Aucun contenu de Phase 2 n'est commencé. La prochaine étape est une nouvelle mission `INSPECT` avant toute décision de Phase 2.
+**État courant autoritatif :** les points `P2-0 — Formalisation durable de la
+boucle séquentielle par point`, `P2-1 — Règle GPU/épaisseur interne` et
+`P2-PUB-1 — Actualisation des README racine avant publication` sont `CLOSED`.
+La Phase 2 est validée par Work et par l'utilisateur ; l'autorisation explicite
+du squash merge est enregistrée. La PR brouillon n° 4 est son véhicule de
+publication et la Phase 2 sera fermée lorsque cet état documentaire sera
+présent sur `main` par le merge de cette PR. Git et GitHub restent les sources
+de vérité pour le squash commit et l'état exact du merge. La baseline validée
+comprend 47 tests, dont 27 tests P2-1. La règle GPU/épaisseur reste interne,
+l'API publique reste limitée à `evaluateGpuCaseLength`, et aucune agrégation,
+nouvelle contrainte ou dépendance n'est autorisée. Aucun P2-2 n'a commencé.
+Chaque point validé reste soumis aux missions distinctes `EXECUTE`, `VERIFY`
+et `CLOSE`, et aucun point n'est actif. Après la clôture réussie, la prochaine
+mission est une nouvelle mission `INSPECT`, distincte, avant toute décision de
+Phase 3. L'arrêt est obligatoire après la clôture de la Phase 2.
+
+Les éléments historiques détaillés dans la description qui suit ne remplacent
+pas cet état courant.
+
+### Historique des états antérieurs
+
+Le contrat API TypeScript public de Phase 0 est fermé. La première vague de traduction française et les corrections documentaires associées ont été vérifiées et l'étape est fermée. Le renommage local vers le dépôt `FitMyLife/` et la réparation manuelle de la jonction npm sont vérifiés et fermés. Le renommage GitHub vers `FitMyLife` et la visibilité privée ont été vérifiés par Work et sont formellement fermés ; la permission administrateur et le remote local correct sont confirmés. La Phase 0 est terminée et validée par l'utilisateur ; sa publication a été portée par la PR n° 1. La passerelle interne `My Stuff` GPU/boîtier de Phase 1 est terminée, vérifiée et validée par l'utilisateur : elle reste étroite, en mémoire, délègue entièrement à `evaluateGpuCaseLength` et ne modifie pas l'API publique. La PR n° 2 constitue son véhicule de publication et son squash merge est enregistré par Git et GitHub. La suite officielle contient 20 tests et la CI durable valide les futures pull requests vers `main`. Aucune liste exhaustive auto-référentielle des commits de branche ni aucun hash futur de clôture n'est figé ici. L'accueil GitHub bilingue est terminé, vérifié et validé par l'utilisateur : les résumés anglais et français sont directement visibles, `README.md` reste canonique en anglais et `README.fr.md` reste le miroir français complet. La PR n° 3 constitue son véhicule de publication et son squash merge autorisé rend cet état canonique sur `main` après le merge ; Git et GitHub restent la source de vérité du commit résultant. La description GitHub et les topics restent inchangés ; aucun tag ni release n'a été créé. À cette date, la phase courante du workflow était `CLOSE`. À cette date, aucun contenu de Phase 2 n'avait encore commencé. La prochaine étape prévue à cette date était une nouvelle mission `INSPECT` avant toute décision de Phase 2.
 
 **Dernière mise à jour :** 2026-08-17
 
@@ -27,7 +48,7 @@ Le contrat API TypeScript public de Phase 0 est fermé. La première vague de tr
 
 **État publié :** les documents, la configuration npm et le Compatibility Engine de Phase 0 sont suivis dans le périmètre publié. `node_modules/` et `dist/` restent ignorés ; les trois fichiers locaux exclus restent non suivis et ne font pas partie du projet publié.
 
-La branche historique `codex/phase-0` a porté la publication contrôlée et la PR n° 1. Son résultat exact est consultable dans Git et GitHub. Aucun tag, release, issue ou changement de visibilité n'est requis par cette clôture. La passerelle interne GPU/boîtier est la seule tranche de Phase 1 implémentée ; l'étape technique et la validation de sa publication sont fermées. La PR n° 2 constitue le véhicule de publication de la Phase 1 et son squash merge autorisé rend cet état canonique sur `main`. Git et GitHub restent la source de vérité du commit de squash ; aucune liste exhaustive auto-référentielle des commits ni aucun hash futur n'est fixé ici. Aucun contenu de Phase 2 n'est commencé.
+La branche historique `codex/phase-0` a porté la publication contrôlée et la PR n° 1. Son résultat exact est consultable dans Git et GitHub. Aucun tag, release, issue ou changement de visibilité n'est requis par cette clôture. La passerelle interne GPU/boîtier est la seule tranche de Phase 1 implémentée ; l'étape technique et la validation de sa publication sont fermées. La PR n° 2 constitue le véhicule de publication de la Phase 1 et son squash merge autorisé rend cet état canonique sur `main`. Git et GitHub restent la source de vérité du commit de squash ; aucune liste exhaustive auto-référentielle des commits ni aucun hash futur n'est fixé ici. À la clôture de la Phase 1, aucun contenu de Phase 2 n'avait encore commencé.
 
 ## 4. État technique réellement observé
 
@@ -38,9 +59,22 @@ La branche historique `codex/phase-0` a porté la publication contrôlée et la 
 - Une tranche exécutable et testée du `Compatibility Engine` existe dans `packages/compatibility-engine/` : longueur GPU candidate contre espace GPU effectif du boîtier.
 - Cette tranche comprend un modèle TypeScript minimal, une fonction pure, 10 tests Node natifs et des scripts npm de typecheck/test.
 - La Phase 1 ajoute une passerelle interne étroite entre deux faits `My Stuff` en mémoire — longueur du GPU candidat et espace GPU effectif du boîtier existant — et `evaluateGpuCaseLength`. Elle ne duplique aucune validation ni règle métier, ne modifie pas l'API publique et ajoute 10 tests ciblés séparés.
-- La commande officielle `npm test` exécute désormais les 20 tests de la tranche : 10 tests Phase 0 et 10 tests de la passerelle Phase 1.
+- Historiquement, avant l'ajout de la règle candidate, la commande officielle `npm test` exécutait 20 tests : 10 tests Phase 0 et 10 tests de la passerelle Phase 1.
 - Aucun moteur complet, aucune interface produit, aucune intégration fournisseur, aucune persistance et aucune décision d'achat ne sont implémentés.
 - `package.json` définit un workspace npm et Node `>=22` ; TypeScript est la seule dépendance de développement de la tranche.
+
+### État de travail observé pour P2-1
+
+- Les 27 tests dédiés de P2-1 sont validés et la baseline locale validée comprend
+  47 tests au total ; cette baseline reste locale et non publiée.
+- L'API publique observée reste limitée à `evaluateGpuCaseLength`.
+- `packages/compatibility-engine/src/gpu-case-thickness.ts` et son fichier de
+  tests sont présents comme règle interne validée et fermée, uniquement dans le
+  working tree.
+- Le manifeste du package inclut déjà le fichier de test candidat ; ce changement
+  est préexistant et n'est pas modifié par P2-1.
+- P2-1 n'ajoute aucune API publique, agrégation, autre contrainte PC, nouvelle
+  dépendance ou publication Phase 2.
 
 ## 5. Contexte produit durable
 
@@ -67,21 +101,45 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 - `README.fr.md` : miroir français du README racine.
 - `docs/fr/` : miroirs français de la vision produit, du périmètre et de la roadmap, du cadre de décision, de l'architecture et de la confidentialité/sécurité.
 - `packages/compatibility-engine/README.fr.md` : miroir français du contrat API public du package.
-- `packages/compatibility-engine/package.json` : manifeste, scripts, format ESM et commande officielle intégrant les deux fichiers de test.
+- `packages/compatibility-engine/package.json` : manifeste, scripts, format ESM et commande officielle intégrant les trois fichiers de test.
 - `packages/compatibility-engine/tsconfig.json` : configuration TypeScript minimale.
 - `packages/compatibility-engine/src/` : types, codes de raison, évaluation pure de la longueur GPU et passerelle interne `My Stuff` GPU/boîtier.
 - `packages/compatibility-engine/src/my-stuff-gpu-case.ts` : contrats internes étroits et adaptateur pur vers la règle GPU/boîtier existante.
-- `packages/compatibility-engine/test/` : 10 tests publics de Phase 0 et 10 tests ciblés de la passerelle interne, exécutés par la suite officielle de 20 tests sans élargir l'entrée publique du package.
+- Historiquement, `packages/compatibility-engine/test/` comprenait 10 tests publics de Phase 0 et 10 tests ciblés de la passerelle interne, exécutés par la suite officielle de 20 tests sans élargir l'entrée publique du package.
 - `package-lock.json` : verrouillage des dépendances npm minimales.
 - Workspace local actuel : dépôt `FitMyLife/`. L'ancien nom local du dossier est conservé uniquement comme historique documentaire.
 - La jonction `node_modules/@fitmylife/compatibility-engine` est de type `Junction` vers `packages/compatibility-engine`.
-- Depuis une nouvelle tâche correctement rattachée à ce workspace, le build, le typecheck, la suite officielle de 20 tests, l'import public du package et les déclarations TypeScript générées ont réussi.
+- Historiquement, depuis une nouvelle tâche correctement rattachée à ce workspace, le build, le typecheck, la suite officielle de 20 tests, l'import public du package et les déclarations TypeScript générées ont réussi.
 - Repository canonique : `https://github.com/NoisyBoyFR/FitMyLife`. L'ancien nom `fitmylife` est conservé uniquement comme historique. La publication contrôlée est portée par la PR n° 1 et son squash merge autorisé ; son historique et le commit exact résultant sont consultables dans Git et GitHub.
 - Le renommage GitHub et la visibilité privée sont vérifiés par Work et formellement fermés.
 
 `.ai-workflow/DEFERRED-ISSUES.md` n'a pas été modifié : l'inspection n'a révélé aucun défaut reporté nécessitant une nouvelle entrée durable.
 
 ## 7. Étape actuelle et exclusions
+
+### État courant de la boucle
+
+- Phase workflow : `CLOSE`.
+- Aucun point actif.
+- Statut : Phase 2 validée par Work et par l'utilisateur ; clôture portée par la PR n° 4.
+- P2-0 : `CLOSED`.
+- P2-1 : `CLOSED`.
+- P2-PUB-1 : `CLOSED`.
+- Audit global de Phase 2 : conforme.
+- Préparation documentaire : fermée.
+- Les README racine sont actualisés et vérifiés ; les README du package sont cohérents.
+- Tous les points actuellement validés de Phase 2 sont fermés.
+- Un seul point peut être actif à la fois.
+- Aucun passage automatique au point suivant n'est autorisé.
+- La branche `codex/phase-2` et la PR n° 4 portent la publication contrôlée ; le squash merge autorisé est le véhicule de clôture.
+- La règle GPU/épaisseur est validée, fermée et reste interne.
+- La baseline locale validée est de 47 tests, dont 27 tests P2-1.
+- L'API publique reste limitée à `evaluateGpuCaseLength`.
+- Aucune agrégation, autre contrainte ou nouvelle dépendance n'est autorisée.
+- La PR n° 4 reste le véhicule du squash merge autorisé ; Git et GitHub feront foi pour son résultat exact.
+- Aucune autre contrainte PC, agrégation ou nouvelle fonctionnalité Phase 2 n'est autorisée.
+- La Phase 2 est fermée lorsque cet état documentaire est présent sur `main` par le merge de la PR n° 4.
+- La prochaine mission après clôture réussie est une nouvelle mission `INSPECT`, avant toute décision de Phase 3.
 
 **Étape terminée :** conception, documentation, tests et vérification du contrat API TypeScript public de Phase 0, puis création et vérification de la première vague de miroirs français et correction des deux baselines anglaises obsolètes.
 
@@ -91,14 +149,14 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 
 **Étape formellement fermée :** préparation documentaire de la publication Phase 0, vérifiée par Work.
 
-**Prochaine étape attendue :** nouvelle mission `INSPECT` avant toute décision de Phase 2.
+**Étape historique avant P2-0 :** une nouvelle mission `INSPECT` était attendue avant toute décision de Phase 2.
 
 **Étape formellement fermée :** implémentation, vérification et validation utilisateur de la passerelle minimale `My Stuff` GPU/boîtier. La Phase 1 est terminée ; la PR n° 2 en constitue le véhicule de publication et le squash merge autorisé.
 
 **Exclusions de publication :** `AGENTS.md`, `BOOTSTRAP-CODEX.txt`, `BOOTSTRAP-WORK.txt`, `node_modules/`, `dist/`, caches, fichiers temporaires, secrets et autres artefacts locaux ignorés.
-**Hors périmètre actuel :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat et toute fonctionnalité de Phase 2. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant.
+**Hors périmètre non autorisé au stade courant :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat, toute nouvelle fonctionnalité Phase 2, toute opération Git ou GitHub hors du squash merge autorisé et de la suppression conditionnelle prévue. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant ; P2-1 reste une règle interne étroite et fermée.
 
-Ne pas commencer de fonctionnalité de Phase 2. La prochaine mission doit être une nouvelle `INSPECT` dédiée à l'état réel du projet avant toute décision produit ou technique.
+Ne pas commencer de nouvelle fonctionnalité Phase 2 ni d'autre contrainte PC. Après la clôture réussie, la prochaine mission attendue est une nouvelle mission `INSPECT` avant toute décision de Phase 3 ; aucun P2-2 ne peut commencer.
 
 **Manifeste Phase 0 validé pour publication :**
 
@@ -120,6 +178,24 @@ Les fichiers exclus ci-dessus restent locaux et ne sont ni supprimés ni ajouté
 Les risques produit, techniques et de sécurité sont désormais recensés dans la section `Risk register` de `docs/product-scope-and-roadmap.md` et complétés par les garde-fous de `docs/privacy-and-security.md`. Les questions prioritaires restent dans `docs/product-scope-and-roadmap.md` et `docs/decision-framework.md`. Ces éléments ne constituent pas automatiquement des tâches prioritaires ni des entrées de `DEFERRED-ISSUES.md` ; ils doivent être réévalués selon la phase et le périmètre développé.
 
 ## 9. Dernier rapport Codex
+
+### Rapport courant — clôture Phase 2 avant merge
+
+P2-0, P2-1 et P2-PUB-1 sont fermés et la Phase 2 est validée par Work et par
+l'utilisateur. La PR n° 4 est le véhicule de publication et l'autorisation
+explicite de son squash merge est enregistrée. Cet état de `CLOSE` devient
+canonique lorsque ce document est présent sur `main` par le merge ; Git et
+GitHub restent les sources de vérité pour le squash commit et l'état exact du
+merge.
+
+La baseline validée est de 47 tests, dont 27 tests dédiés à P2-1. La règle
+GPU/épaisseur reste interne, l'API publique reste limitée à
+`evaluateGpuCaseLength`, et aucune agrégation, nouvelle contrainte ou
+dépendance n'est ajoutée. Aucun P2-2 n'a commencé. Après la clôture réussie,
+la prochaine mission est une nouvelle mission `INSPECT`, distincte, avant toute
+décision de Phase 3. L'arrêt est obligatoire après la clôture de la Phase 2.
+
+### Rapport historique précédent
 
 **Date :** 2026-08-17
 

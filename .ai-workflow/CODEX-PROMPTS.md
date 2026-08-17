@@ -154,6 +154,98 @@ Donne :
 Ne décide pas silencieusement d'enchaîner sur une autre fonctionnalité.
 ```
 
+## Boucle d'exécution par point
+
+Utiliser cette section pour préparer, dans toute phase future contenant un ou
+plusieurs points validés, un plan et des missions distinctes pilotées par Work.
+Les points peuvent être fonctionnels, techniques, documentaires, de sécurité,
+de confidentialité ou de publication. Elle est réutilisable pour toutes les
+phases futures.
+
+```text
+PLAN DE PHASE
+
+Pour chaque point, indique :
+
+- identifiant ;
+- objectif ;
+- statut ;
+- dépendances ;
+- périmètre ;
+- exclusions ;
+- critères de clôture.
+
+Statuts autorisés :
+
+- PENDING
+- EXECUTING
+- VERIFYING
+- CORRECTING
+- CLOSED
+- BLOCKED
+
+Un seul point peut être EXECUTING, VERIFYING, CORRECTING ou BLOCKED à la fois.
+Seuls les points explicitement validés par l'utilisateur entrent dans ce plan.
+
+MISSION EXECUTE — POINT [ID]
+
+1. vérifie l'état réel ;
+2. traite uniquement le point actif ;
+3. exécute les validations prévues ;
+4. produit le rapport Codex ;
+5. s'arrête et rend la main à Work.
+
+Ne commence pas le point suivant dans cette mission.
+
+MISSION VERIFY — POINT [ID]
+
+1. inspecte indépendamment le résultat ;
+2. vérifie les critères de clôture ;
+3. conclut VALIDÉ, À CORRIGER ou BLOQUÉ ;
+4. ne corrige pas dans une mission strictement VERIFY sans autorisation explicite ;
+5. rend la main à Work.
+
+CORRECTION
+
+Si le verdict est À CORRIGER :
+
+1. Work prépare une nouvelle mission ciblée ;
+2. Codex corrige uniquement les défauts confirmés ;
+3. le même point reste actif ;
+4. une nouvelle mission VERIFY est obligatoire.
+
+Ne fixe aucune limite arbitraire de tentatives qui conduirait à accepter une
+validation rouge. Si la correction est impossible ou nécessite une autorité
+supplémentaire, le point devient BLOCKED.
+
+MISSION CLOSE — POINT [ID]
+
+Elle doit confirmer l'objectif, les validations, les limites et l'état durable,
+puis fermer uniquement le point courant. Elle ne commence pas le point suivant.
+
+FIN DE PHASE
+
+Après fermeture de tous les points : audit global, préparation documentaire,
+publication contrôlée, CI, PR brouillon, vérification Work, validation utilisateur
+du merge, clôture de phase et arrêt. La suppression d'une branche de publication
+reste facultative et ne peut intervenir qu'après :
+
+1. réussite réelle du merge autorisé ;
+2. confirmation du contenu attendu sur la branche cible ;
+3. validations post-merge nécessaires réussies ;
+4. autorisation utilisateur explicite de supprimer la branche.
+
+L'autorisation du merge ne vaut pas automatiquement autorisation de suppression,
+sauf autorisation conjointe explicite. Toute suppression locale ou distante doit
+rester dans le périmètre autorisé et ne peut intervenir après un échec de merge
+ou un doute sur le contenu publié. La phase suivante exige une nouvelle mission
+INSPECT.
+```
+
+Le point suivant ne commence qu'après analyse du rapport par Work et fermeture
+explicite du point précédent. La boucle ne vaut pas autorisation permanente pour
+les idées non validées.
+
 ---
 
 # 3. VERIFY

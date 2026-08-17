@@ -258,3 +258,86 @@ nouvel état réel
 ```
 
 Chaque nouvelle décision doit idéalement partir du résultat réel de la précédente.
+
+---
+
+# 11. Boucle séquentielle de validation par point
+
+Toute phase future contenant un ou plusieurs points validés, qu'ils soient
+fonctionnels, techniques, documentaires, de sécurité, de confidentialité ou
+de publication, doit d'abord posséder un plan de phase explicitement validé.
+Le plan décrit, pour chaque point :
+
+- un identifiant stable ;
+- un objectif ;
+- un périmètre et des exclusions ;
+- les dépendances ;
+- les critères de clôture.
+
+Un seul point peut être actif à la fois. Les idées `ENVISAGÉES`, `FUTUR`, `À
+DÉCIDER`, hypothétiques, rejetées ou simplement comparées ne peuvent pas
+entrer dans le plan d'exécution sans validation explicite.
+
+Pour chaque point, `EXECUTE`, `VERIFY` et `CLOSE` sont normalement des missions
+distinctes :
+
+```text
+PLAN DE PHASE VALIDÉ
+    ↓
+POINT N — EXECUTE
+    ↓
+rapport Codex → analyse Work
+    ↓
+POINT N — VERIFY
+    ↓
+si échec : correction ciblée → nouvelle mission VERIFY
+    ↓
+POINT N — CLOSE
+    ↓
+point suivant uniquement après fermeture explicite
+```
+
+La mission `EXECUTE` traite uniquement le point actif, exécute ses validations
+prévues, produit un rapport et rend la main à Work. Elle ne commence jamais le
+point suivant.
+
+La mission `VERIFY` inspecte indépendamment le résultat et vérifie les critères
+de clôture. Une validation échouée maintient le même point actif. La correction
+reste limitée au défaut confirmé et fait l'objet d'une nouvelle mission ; elle
+ne doit pas être dissimulée dans une mission strictement `VERIFY`.
+
+La mission `CLOSE` confirme l'objectif, les validations, les limites et l'état
+durable, puis ferme uniquement le point courant. Le point suivant ne peut
+commencer qu'après cette fermeture explicite et l'analyse de Work.
+
+Un arbitrage produit, une extension de périmètre, une opération destructive ou
+une nouvelle permission Git/GitHub impose un arrêt. Commit, push, PR, merge et
+publication restent soumis aux autorisations explicites prévues par la
+mission.
+
+Après fermeture de tous les points, la phase suit cette séquence :
+
+```text
+audit global de phase
+    ↓
+préparation et publication contrôlées
+    ↓
+vérification Work et validation utilisateur du merge
+    ↓
+CLOSE de la phase
+    ↓
+ARRÊT — nouvelle mission INSPECT obligatoire
+```
+
+La suppression d'une branche de publication est facultative et conditionnelle.
+Elle ne peut intervenir qu'après la réussite réelle du merge autorisé, la
+confirmation du contenu attendu sur la branche cible et la réussite des
+validations post-merge nécessaires, avec une autorisation utilisateur explicite
+couvrant cette suppression. L'autorisation du merge ne vaut pas à elle seule
+autorisation de supprimer la branche, sauf autorisation conjointe explicite.
+Toute suppression locale ou distante reste limitée au périmètre autorisé et ne
+doit jamais suivre un échec de merge ou un doute sur le contenu publié.
+
+La validation globale ne remplace pas la validation de chaque point. Cette
+boucle ne constitue pas une autorisation permanente d'exécuter toutes les
+fonctionnalités évoquées pendant un brainstorming.
