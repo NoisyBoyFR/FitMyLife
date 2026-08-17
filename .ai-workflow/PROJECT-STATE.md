@@ -36,7 +36,9 @@ PR reste ouverte et non fusionnée. L'API publique observée reste limitée à
 `evaluateGpuCaseLength` ; aucune API publique nouvelle, agrégation, autre
 contrainte ou nouvelle dépendance n'est autorisée.
 
-La prochaine étape attendue est la vérification Work de la PR brouillon n° 4.
+La prochaine séquence attendue est la vérification Work de la PR brouillon n° 4
+puis, uniquement si elle est conforme, une décision utilisateur explicite et
+distincte concernant le merge.
 Aucun P2-2 ne peut être créé ni activé. La Phase 2 produit n'est pas
 globalement fermée ; sa fermeture future reste distincte de la fermeture de
 P2-1. Tout passage en prête, merge ou suppression de branche reste soumis à
@@ -218,8 +220,9 @@ publiés dans la PR brouillon ; la règle reste interne et aucun consommateur
 applicatif n'a été ajouté. L'API publique reste limitée à
 `evaluateGpuCaseLength`. Aucun merge, passage en prête, suppression de branche
 ou autre publication n'est autorisé. Aucun point produit supplémentaire n'est
-actif ; la prochaine étape est la vérification Work de la PR. La fermeture de
-P2-PUB-1 ne ferme pas la Phase 2 produit.
+actif ; la prochaine séquence est la vérification Work de la PR puis, uniquement
+si elle est conforme, une décision utilisateur explicite et distincte
+concernant le merge. La fermeture de P2-PUB-1 ne ferme pas la Phase 2 produit.
 
 ### Rapport historique précédent
 
