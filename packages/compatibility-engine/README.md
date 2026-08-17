@@ -111,6 +111,75 @@ Missing and invalid values have distinct reason codes. Evidence identifies
 the missing or invalid field. Valid comparisons include the two dimensions
 and `clearanceMm`.
 
+## Internal GPU/case-thickness rule — Phase 2 P2-1
+
+The internal rule validated and formally closed as P2-1 is a narrow Phase 2
+slice. It is not exported from the package entry point and does not change the
+public API. Its changes remain in the local working tree and are not published
+until a separate Phase 2 publication.
+
+It compares four internal facts:
+
+| Field | Meaning |
+| --- | --- |
+| `candidateGpuThicknessMm` | Maximum relevant physical extent of the exact candidate GPU model, in millimetres, on the selected axis |
+| `availableEffectiveThicknessMm` | Real free physical space around the target slot, in millimetres, on that same axis |
+| `candidateGpuThicknessVerificationStatus` | Caller assertion that the candidate measurement is `VERIFIED` or `UNVERIFIED` |
+| `availableEffectiveThicknessVerificationStatus` | Caller assertion that the effective-clearance measurement is `VERIFIED` or `UNVERIFIED` |
+
+The two measurements must use the same axis and a compatible geometric
+reference around the target slot. The effective space must already account for
+known obstacles. If the geometry is asymmetric, the caller may reduce it to a
+scalar only after establishing that the scalar is the limiting envelope for
+the comparison. The rule does not calculate case geometry and never infers a
+measurement from commercial designations such as `2-slot` or `2.5-slot`.
+
+Both verification statuses are independent caller assertions. `VERIFIED` is
+acceptable only when the caller has comparable measurements supported by its
+own trusted process; the status itself is not provenance, confidence,
+freshness, or proof. Missing, invalid, or `UNVERIFIED` statuses produce
+`MISSING_INFORMATION`.
+
+For two valid and verified measurements:
+
+```text
+clearanceMm = availableEffectiveThicknessMm - candidateGpuThicknessMm
+```
+
+Positive and zero clearance produce `VALID` for this dimension only. Negative
+clearance produces `BLOCKING` for this dimension only. Equality is a strict
+geometric comparison: it is not a mounting margin, tolerance guarantee,
+cooling guarantee, or global compatibility conclusion. No comfort threshold,
+epsilon, or artificial `WARNING` is applied.
+
+The rule uses field-specific stable reason codes for missing, invalid,
+unverified, and verification-status failures, plus
+`GPU_THICKNESS_FITS_EFFECTIVE_CLEARANCE` and
+`GPU_THICKNESS_EXCEEDS_EFFECTIVE_CLEARANCE`. Evidence identifies the exact
+field, preserves available numeric measurements when verification blocks the
+conclusion, and exposes `clearanceMm` only after both measurements and both
+statuses are valid and verified. Evidence contains no score or localized text.
+
+The complete reason-code set is:
+
+- `GPU_THICKNESS_MISSING`;
+- `GPU_THICKNESS_INVALID`;
+- `GPU_THICKNESS_VERIFICATION_STATUS_MISSING`;
+- `GPU_THICKNESS_VERIFICATION_STATUS_INVALID`;
+- `GPU_THICKNESS_UNVERIFIED`;
+- `GPU_EFFECTIVE_CLEARANCE_MISSING`;
+- `GPU_EFFECTIVE_CLEARANCE_INVALID`;
+- `GPU_EFFECTIVE_CLEARANCE_VERIFICATION_STATUS_MISSING`;
+- `GPU_EFFECTIVE_CLEARANCE_VERIFICATION_STATUS_INVALID`;
+- `GPU_EFFECTIVE_CLEARANCE_UNVERIFIED`;
+- `GPU_THICKNESS_FITS_EFFECTIVE_CLEARANCE`;
+- `GPU_THICKNESS_EXCEEDS_EFFECTIVE_CLEARANCE`.
+
+This rule excludes length, height, side-panel clearance, cables, connectors,
+power, thermals, airflow, PCIe, performance, mounting, recommendations and
+global compatibility. It is internal, pure, synchronous, provider-free and
+does not aggregate other rules.
+
 ## Scope and limits
 
 This package deliberately excludes additional compatibility rules, rule

@@ -14,7 +14,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "npm run build && node --test test/gpu-case-length.test.js test/my-stuff-gpu-case.test.js"
+    "test": "npm run build && node --test test/gpu-case-length.test.js test/my-stuff-gpu-case.test.js test/gpu-case-thickness.test.js"
   },
   "devDependencies": {
     "typescript": "^7.0.2"
