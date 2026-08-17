@@ -59,10 +59,10 @@ For a new Work conversation, start by reading `.ai-workflow/START-HERE.md` and t
 
 ## Current workspace verification
 
-The local workspace is the `FitMyLife/` repository. The former local folder name is retained only as historical context. The local rename and npm environment repair were performed manually, verified, and closed. The GitHub rename to `NoisyBoyFR/FitMyLife` and its private visibility have been verified and formally closed; the local remote is correct. The Phase 0 publication manifest is validated, and this documentary preparation is formally closed. The product phase remains open until controlled publication and final closure.
+The local workspace is the `FitMyLife/` repository. The former local folder name is retained only as historical context. The local rename and npm environment repair were performed manually, verified, and closed. The GitHub rename to `NoisyBoyFR/FitMyLife` and its private visibility have been verified and formally closed; the local remote is correct. Phase 0 has been published on the dedicated `codex/phase-0` branch in commits `aebc2a0` and `3141c2b`, with draft PR [#1](https://github.com/NoisyBoyFR/FitMyLife/pull/1). The PR remains open for Work verification and user validation; no merge has occurred.
 
 ## Status
 
-This repository establishes product, architecture, and privacy guardrails. The first approved Compatibility Engine slice is now implemented and tested: deterministic GPU length versus effective case space. The complete engine and subsequent features remain subject to verification and further user validation. The next distinct mission is controlled Phase 0 publication through the dedicated `codex/phase-0` branch and a pull request, followed by final phase closure.
+This repository establishes product, architecture, and privacy guardrails. The first approved Compatibility Engine slice is now implemented and tested: deterministic GPU length versus effective case space. The complete engine and subsequent features remain subject to verification and further user validation. The next step is independent Work verification of [draft PR #1](https://github.com/NoisyBoyFR/FitMyLife/pull/1), followed by user validation and the later decision to merge and close Phase 0.
 
 See [the product vision](docs/product-vision.md), [product scope and roadmap](docs/product-scope-and-roadmap.md), [decision framework](docs/decision-framework.md), [architecture guardrails](docs/architecture.md), [privacy and security rules](docs/privacy-and-security.md), and [the backlog](TASKS.md).
