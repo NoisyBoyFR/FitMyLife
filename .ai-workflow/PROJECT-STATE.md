@@ -141,7 +141,7 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 - Aucune agrégation, autre contrainte ou nouvelle dépendance n'est autorisée.
 - La PR n° 4 est le véhicule historique du squash merge autorisé ; Git et GitHub font foi pour son résultat exact.
 - Aucune autre contrainte PC, agrégation ou nouvelle fonctionnalité Phase 2 n'est autorisée.
-- La Phase 2 est fermée et cet état documentaire est présent sur `main` par le squash merge de la PR n° 4.
+- La PR n° 4 a fusionné sur `main` le contenu de Phase 2 et sa clôture fonctionnelle. Les corrections documentaires post-merge relèvent d'un historique correctif distinct ; Git et GitHub restent les sources de vérité pour cet historique. La Phase 2 reste fermée.
 - La prochaine mission est une nouvelle mission `INSPECT`, avant toute décision de Phase 3.
 
 **Étape terminée :** conception, documentation, tests et vérification du contrat API TypeScript public de Phase 0, puis création et vérification de la première vague de miroirs français et correction des deux baselines anglaises obsolètes.
@@ -157,7 +157,7 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 **Étape formellement fermée :** implémentation, vérification et validation utilisateur de la passerelle minimale `My Stuff` GPU/boîtier. La Phase 1 est terminée ; la PR n° 2 en constitue le véhicule de publication et le squash merge autorisé.
 
 **Exclusions de publication :** `AGENTS.md`, `BOOTSTRAP-CODEX.txt`, `BOOTSTRAP-WORK.txt`, `node_modules/`, `dist/`, caches, fichiers temporaires, secrets et autres artefacts locaux ignorés.
-**Hors périmètre non autorisé au stade courant :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat, toute nouvelle fonctionnalité Phase 2, toute opération Git ou GitHub hors du squash merge autorisé et de la suppression conditionnelle prévue. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant ; P2-1 reste une règle interne étroite et fermée.
+**Hors périmètre non autorisé au stade courant :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat, toute nouvelle fonctionnalité Phase 2 et toute opération Git ou GitHub avec effet de bord. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant ; P2-1 reste une règle interne étroite et fermée. Les autorisations utilisateur relatives au squash merge de la PR n° 4 et à la suppression de `codex/phase-2` ont été consommées par leur exécution réussie. Aucune nouvelle opération Git ou GitHub avec effet de bord n'est autorisée par cet accord ; les contrôles en lecture seule restent possibles. Toute nouvelle opération Git ou GitHub nécessite une nouvelle autorisation utilisateur explicite.
 
 Ne pas commencer de nouvelle fonctionnalité Phase 2 ni d'autre contrainte PC. La prochaine mission attendue est une nouvelle mission `INSPECT` avant toute décision de Phase 3 ; aucun P2-2 ne peut commencer.
 
