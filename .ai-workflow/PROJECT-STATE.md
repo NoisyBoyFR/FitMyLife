@@ -193,13 +193,14 @@ Les risques produit, techniques et de sécurité sont désormais recensés dans 
 ### Rapport courant — publication Phase 2 en PR brouillon
 
 P2-0, P2-1 et P2-PUB-1 sont fermés et l'audit global de Phase 2 est conforme.
-La branche `codex/phase-2` porte trois commits réels : `52ed78d` (`docs: add
-durable point-by-point phase workflow`), `0874141` (`feat: add internal GPU
-case thickness rule`) et `5c737a5` (`docs: close phase 2 locally`). La PR
-brouillon n° 4 est ouverte sur `main` avec le head `codex/phase-2` :
-https://github.com/NoisyBoyFR/FitMyLife/pull/4. Le premier run CI réel a
-réussi sur le SHA `5c737a5abee747ec2d02344e25f55408b062884a` :
-https://github.com/NoisyBoyFR/FitMyLife/actions/runs/32062513521.
+La publication initiale de Phase 2 a été structurée en quatre commits validés
+sur la branche `codex/phase-2`, dont le HEAD initial de publication était
+`04e8f644ec24691ff415b5a5da42c237659a5e40`. La branche et la PR brouillon n° 4
+portent la publication ainsi qu'une correction documentaire ciblée ajoutée
+après l'audit Work. Git et GitHub restent les sources de vérité pour le HEAD
+exact de la branche et de la PR, le nombre courant de commits, le dernier run
+CI et le futur squash commit. Une CI réussie sur le HEAD courant de la PR est
+une précondition de validation ; son identifiant n'est pas figé ici.
 
 Les README racine sont actualisés et vérifiés ; les README du package restent
 cohérents. La baseline locale validée est de 47 tests, dont 27 tests dédiés à
