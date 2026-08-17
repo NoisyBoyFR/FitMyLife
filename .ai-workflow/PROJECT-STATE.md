@@ -16,18 +16,21 @@
 **État courant autoritatif :** les points `P2-0 — Formalisation durable de la
 boucle séquentielle par point`, `P2-1 — Règle GPU/épaisseur interne` et
 `P2-PUB-1 — Actualisation des README racine avant publication` sont `CLOSED`.
-La Phase 2 est validée par Work et par l'utilisateur ; l'autorisation explicite
-du squash merge est enregistrée. La PR brouillon n° 4 est son véhicule de
-publication et la Phase 2 sera fermée lorsque cet état documentaire sera
-présent sur `main` par le merge de cette PR. Git et GitHub restent les sources
-de vérité pour le squash commit et l'état exact du merge. La baseline validée
-comprend 47 tests, dont 27 tests P2-1. La règle GPU/épaisseur reste interne,
-l'API publique reste limitée à `evaluateGpuCaseLength`, et aucune agrégation,
-nouvelle contrainte ou dépendance n'est autorisée. Aucun P2-2 n'a commencé.
+La Phase 2 est validée par Work et par l'utilisateur, fusionnée et fermée. La
+PR n° 4 en a été le véhicule de publication et son squash merge est enregistré
+sur `main` par le commit historique
+`dc95997b89e46bbce55513d5dba5936c23f57ab9`, parent
+`ad95929d44058d0810fe6ff68046f73e07d8e0c8`. La branche de publication
+`codex/phase-2` a été supprimée localement et à distance après les validations
+post-merge. Git et GitHub restent les sources de vérité pour le squash commit
+et l'état exact du merge. La baseline validée comprend 47 tests, dont 27 tests
+P2-1. La règle GPU/épaisseur reste interne, l'API publique reste limitée à
+`evaluateGpuCaseLength`, et aucune agrégation, nouvelle contrainte ou
+dépendance n'est autorisée. Aucun P2-2 n'a commencé.
 Chaque point validé reste soumis aux missions distinctes `EXECUTE`, `VERIFY`
-et `CLOSE`, et aucun point n'est actif. Après la clôture réussie, la prochaine
-mission est une nouvelle mission `INSPECT`, distincte, avant toute décision de
-Phase 3. L'arrêt est obligatoire après la clôture de la Phase 2.
+et `CLOSE`, et aucun point n'est actif. La prochaine mission est une nouvelle
+mission `INSPECT`, distincte, avant toute décision de Phase 3. L'arrêt est
+obligatoire après la clôture de la Phase 2.
 
 Les éléments historiques détaillés dans la description qui suit ne remplacent
 pas cet état courant.
@@ -131,15 +134,15 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 - Tous les points actuellement validés de Phase 2 sont fermés.
 - Un seul point peut être actif à la fois.
 - Aucun passage automatique au point suivant n'est autorisé.
-- La branche `codex/phase-2` et la PR n° 4 portent la publication contrôlée ; le squash merge autorisé est le véhicule de clôture.
+- La PR n° 4 a porté la publication contrôlée ; son squash merge autorisé est le véhicule historique de clôture et la branche `codex/phase-2` a été supprimée après validation.
 - La règle GPU/épaisseur est validée, fermée et reste interne.
 - La baseline locale validée est de 47 tests, dont 27 tests P2-1.
 - L'API publique reste limitée à `evaluateGpuCaseLength`.
 - Aucune agrégation, autre contrainte ou nouvelle dépendance n'est autorisée.
-- La PR n° 4 reste le véhicule du squash merge autorisé ; Git et GitHub feront foi pour son résultat exact.
+- La PR n° 4 est le véhicule historique du squash merge autorisé ; Git et GitHub font foi pour son résultat exact.
 - Aucune autre contrainte PC, agrégation ou nouvelle fonctionnalité Phase 2 n'est autorisée.
-- La Phase 2 est fermée lorsque cet état documentaire est présent sur `main` par le merge de la PR n° 4.
-- La prochaine mission après clôture réussie est une nouvelle mission `INSPECT`, avant toute décision de Phase 3.
+- La PR n° 4 a fusionné sur `main` le contenu de Phase 2 et sa clôture fonctionnelle. Les corrections documentaires post-merge relèvent d'un historique correctif distinct ; Git et GitHub restent les sources de vérité pour cet historique. La Phase 2 reste fermée.
+- La prochaine mission est une nouvelle mission `INSPECT`, avant toute décision de Phase 3.
 
 **Étape terminée :** conception, documentation, tests et vérification du contrat API TypeScript public de Phase 0, puis création et vérification de la première vague de miroirs français et correction des deux baselines anglaises obsolètes.
 
@@ -154,9 +157,9 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 **Étape formellement fermée :** implémentation, vérification et validation utilisateur de la passerelle minimale `My Stuff` GPU/boîtier. La Phase 1 est terminée ; la PR n° 2 en constitue le véhicule de publication et le squash merge autorisé.
 
 **Exclusions de publication :** `AGENTS.md`, `BOOTSTRAP-CODEX.txt`, `BOOTSTRAP-WORK.txt`, `node_modules/`, `dist/`, caches, fichiers temporaires, secrets et autres artefacts locaux ignorés.
-**Hors périmètre non autorisé au stade courant :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat, toute nouvelle fonctionnalité Phase 2, toute opération Git ou GitHub hors du squash merge autorisé et de la suppression conditionnelle prévue. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant ; P2-1 reste une règle interne étroite et fermée.
+**Hors périmètre non autorisé au stade courant :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat, toute nouvelle fonctionnalité Phase 2 et toute opération Git ou GitHub avec effet de bord. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant ; P2-1 reste une règle interne étroite et fermée. Les autorisations utilisateur relatives au squash merge de la PR n° 4 et à la suppression de `codex/phase-2` ont été consommées par leur exécution réussie. Aucune nouvelle opération Git ou GitHub avec effet de bord n'est autorisée par cet accord ; les contrôles en lecture seule restent possibles. Toute nouvelle opération Git ou GitHub nécessite une nouvelle autorisation utilisateur explicite.
 
-Ne pas commencer de nouvelle fonctionnalité Phase 2 ni d'autre contrainte PC. Après la clôture réussie, la prochaine mission attendue est une nouvelle mission `INSPECT` avant toute décision de Phase 3 ; aucun P2-2 ne peut commencer.
+Ne pas commencer de nouvelle fonctionnalité Phase 2 ni d'autre contrainte PC. La prochaine mission attendue est une nouvelle mission `INSPECT` avant toute décision de Phase 3 ; aucun P2-2 ne peut commencer.
 
 **Manifeste Phase 0 validé pour publication :**
 
@@ -179,21 +182,23 @@ Les risques produit, techniques et de sécurité sont désormais recensés dans 
 
 ## 9. Dernier rapport Codex
 
-### Rapport courant — clôture Phase 2 avant merge
+### Rapport courant — clôture Phase 2 après merge
 
 P2-0, P2-1 et P2-PUB-1 sont fermés et la Phase 2 est validée par Work et par
-l'utilisateur. La PR n° 4 est le véhicule de publication et l'autorisation
-explicite de son squash merge est enregistrée. Cet état de `CLOSE` devient
-canonique lorsque ce document est présent sur `main` par le merge ; Git et
-GitHub restent les sources de vérité pour le squash commit et l'état exact du
-merge.
+l'utilisateur. La PR n° 4 a été le véhicule de publication et son squash merge
+est enregistré sur `main` par le commit historique
+`dc95997b89e46bbce55513d5dba5936c23f57ab9`, dont le parent est
+`ad95929d44058d0810fe6ff68046f73e07d8e0c8`. La branche de publication
+`codex/phase-2` a été supprimée localement et à distance après les validations
+post-merge. L'état de `CLOSE` est canonique sur `main` ; Git et GitHub restent
+les sources de vérité pour le squash commit et l'état exact du merge.
 
 La baseline validée est de 47 tests, dont 27 tests dédiés à P2-1. La règle
 GPU/épaisseur reste interne, l'API publique reste limitée à
 `evaluateGpuCaseLength`, et aucune agrégation, nouvelle contrainte ou
-dépendance n'est ajoutée. Aucun P2-2 n'a commencé. Après la clôture réussie,
-la prochaine mission est une nouvelle mission `INSPECT`, distincte, avant toute
-décision de Phase 3. L'arrêt est obligatoire après la clôture de la Phase 2.
+dépendance n'est ajoutée. Aucun P2-2 n'a commencé. La prochaine mission est
+une nouvelle mission `INSPECT`, distincte, avant toute décision de Phase 3.
+L'arrêt est obligatoire après la clôture de la Phase 2.
 
 ### Rapport historique précédent
 
