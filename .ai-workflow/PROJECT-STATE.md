@@ -11,33 +11,33 @@
 
 ## 2. Phase actuelle du workflow
 
-**Phase :** `CLOSE`
+**Phase :** `VERIFY`
 
 **État courant autoritatif :** les points `P2-0 — Formalisation durable de la
 boucle séquentielle par point`, `P2-1 — Règle GPU/épaisseur interne` et
 `P2-PUB-1 — Actualisation des README racine avant publication` sont `CLOSED`.
-Aucun point n'est actif. L'audit global de Phase 2 est conforme et la
-préparation documentaire est fermée. P2-1 reste une règle interne étroite,
-avec 27 tests dédiés et une baseline locale validée de 47 tests au total. Les
-README racine sont actualisés et vérifiés ; les README du package restent
-cohérents. Aucune publication Phase 2 n'est effectuée. Chaque point validé
-doit suivre des missions distinctes `EXECUTE`, `VERIFY` et `CLOSE` ; une
-validation échouée conserve le même point jusqu'à correction et nouvelle
-vérification. Un seul point peut être actif à la fois et aucun passage au point
-suivant n'est automatique.
+La publication de Phase 2 est en `VERIFY` via la branche `codex/phase-2` et la
+PR brouillon n° 4. Les trois premiers commits sont réels et leur premier run
+CI est réussi. Aucun merge, passage en prête ou suppression de branche n'est
+autorisé. L'audit global de Phase 2 reste conforme. P2-1 reste une règle
+interne étroite, avec 27 tests dédiés et une baseline locale validée de 47
+tests au total. Les README racine sont actualisés et vérifiés ; les README du
+package restent cohérents. Chaque point validé doit suivre des missions
+distinctes `EXECUTE`, `VERIFY` et `CLOSE` ; une validation échouée conserve le
+même point jusqu'à correction et nouvelle vérification. Un seul point peut être
+actif à la fois et aucun passage au point suivant n'est automatique.
 
-La règle GPU/épaisseur validée et fermée reste une règle interne non publiée.
-Les README racine sont actualisés dans le working tree et ne constituent pas
-encore une publication de la Phase 2 produit. L'API publique observée reste
-limitée à `evaluateGpuCaseLength` ; aucune API publique nouvelle, agrégation,
-autre contrainte ou nouvelle dépendance n'est autorisée.
+La règle GPU/épaisseur validée et fermée reste une règle interne. La branche
+`codex/phase-2` et la PR brouillon n° 4 portent la publication contrôlée ; la
+PR reste ouverte et non fusionnée. L'API publique observée reste limitée à
+`evaluateGpuCaseLength` ; aucune API publique nouvelle, agrégation, autre
+contrainte ou nouvelle dépendance n'est autorisée.
 
-La prochaine mission attendue est une nouvelle mission `INSPECT` de préparation
-à la publication contrôlée de la Phase 2. Aucun P2-2 ne peut être créé ni
-activé. La Phase 2 produit n'est ni publiée ni globalement fermée ; sa
-fermeture future reste distincte de la fermeture de P2-1. Toute publication,
-branche, PR, merge ou suppression de branche reste soumise à une autorisation
-distincte.
+La prochaine étape attendue est la vérification Work de la PR brouillon n° 4.
+Aucun P2-2 ne peut être créé ni activé. La Phase 2 produit n'est pas
+globalement fermée ; sa fermeture future reste distincte de la fermeture de
+P2-1. Tout passage en prête, merge ou suppression de branche reste soumis à
+une autorisation distincte.
 L'arrêt est obligatoire à la fin de chaque phase.
 
 Les éléments historiques détaillés dans la description qui suit ne remplacent
@@ -130,9 +130,9 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 
 ### État courant de la boucle
 
-- Phase workflow : `CLOSE`.
+- Phase workflow : `VERIFY`.
 - Aucun point actif.
-- Statut : préparation documentaire de P2-PUB-1 fermée après vérification conforme.
+- Statut : P2-PUB-1 fermé ; publication Phase 2 en vérification Work via la PR brouillon n° 4.
 - P2-0 : `CLOSED`.
 - P2-1 : `CLOSED`.
 - P2-PUB-1 : `CLOSED`.
@@ -142,15 +142,15 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 - Tous les points actuellement validés de Phase 2 sont fermés.
 - Un seul point peut être actif à la fois.
 - Aucun passage automatique au point suivant n'est autorisé.
-- Les README racine sont actualisés dans le working tree, mais la Phase 2 reste non publiée.
-- La règle GPU/épaisseur est validée et fermée, mais reste non publiée.
+- Les changements Phase 2 sont publiés sur `codex/phase-2` et portés par la PR brouillon n° 4.
+- La règle GPU/épaisseur est validée, fermée et reste interne.
 - La baseline locale validée est de 47 tests, dont 27 tests P2-1.
 - L'API publique reste limitée à `evaluateGpuCaseLength`.
 - Aucune agrégation, autre contrainte ou nouvelle dépendance n'est autorisée.
-- Aucune branche ou PR Phase 2 n'existe.
-- Aucune autre contrainte PC, agrégation ou publication Phase 2 n'est autorisée.
+- La PR Phase 2 reste ouverte et non fusionnée ; aucun passage en prête n'est autorisé.
+- Aucune autre contrainte PC, agrégation ou nouvelle fonctionnalité Phase 2 n'est autorisée.
 - La Phase 2 produit n'est pas encore globalement fermée.
-- La prochaine mission est une nouvelle mission `INSPECT` de préparation à la publication contrôlée de la Phase 2.
+- La prochaine étape est la vérification Work de la PR brouillon n° 4.
 
 **Étape terminée :** conception, documentation, tests et vérification du contrat API TypeScript public de Phase 0, puis création et vérification de la première vague de miroirs français et correction des deux baselines anglaises obsolètes.
 
@@ -165,9 +165,9 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 **Étape formellement fermée :** implémentation, vérification et validation utilisateur de la passerelle minimale `My Stuff` GPU/boîtier. La Phase 1 est terminée ; la PR n° 2 en constitue le véhicule de publication et le squash merge autorisé.
 
 **Exclusions de publication :** `AGENTS.md`, `BOOTSTRAP-CODEX.txt`, `BOOTSTRAP-WORK.txt`, `node_modules/`, `dist/`, caches, fichiers temporaires, secrets et autres artefacts locaux ignorés.
-**Hors périmètre non autorisé au stade courant :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat, toute fonctionnalité Phase 2 et toute publication. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant ; P2-1 reste une règle interne étroite et fermée.
+**Hors périmètre non autorisé au stade courant :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat, toute nouvelle fonctionnalité Phase 2, tout passage en prête, merge ou suppression de branche. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant ; P2-1 reste une règle interne étroite et fermée.
 
-Ne pas commencer de nouvelle fonctionnalité Phase 2 ni d'autre contrainte PC. La prochaine mission attendue est une nouvelle mission `INSPECT` de préparation à la publication contrôlée de la Phase 2 ; aucun P2-2 ne peut commencer.
+Ne pas commencer de nouvelle fonctionnalité Phase 2 ni d'autre contrainte PC. La prochaine étape attendue est la vérification Work de la PR brouillon n° 4 ; aucun P2-2 ne peut commencer.
 
 **Manifeste Phase 0 validé pour publication :**
 
@@ -190,24 +190,32 @@ Les risques produit, techniques et de sécurité sont désormais recensés dans 
 
 ## 9. Dernier rapport Codex
 
-### Rapport courant — P2-PUB-1 fermeture documentaire
+### Rapport courant — publication Phase 2 en PR brouillon
 
 P2-0, P2-1 et P2-PUB-1 sont fermés et l'audit global de Phase 2 est conforme.
+La branche `codex/phase-2` porte trois commits réels : `52ed78d` (`docs: add
+durable point-by-point phase workflow`), `0874141` (`feat: add internal GPU
+case thickness rule`) et `5c737a5` (`docs: close phase 2 locally`). La PR
+brouillon n° 4 est ouverte sur `main` avec le head `codex/phase-2` :
+https://github.com/NoisyBoyFR/FitMyLife/pull/4. Le premier run CI réel a
+réussi sur le SHA `5c737a5abee747ec2d02344e25f55408b062884a` :
+https://github.com/NoisyBoyFR/FitMyLife/actions/runs/32062513521.
+
 Les README racine sont actualisés et vérifiés ; les README du package restent
 cohérents. La baseline locale validée est de 47 tests, dont 27 tests dédiés à
-P2-1. La boucle durable impose un plan de phase validé, un seul point actif,
-des missions séparées `EXECUTE`, `VERIFY` et `CLOSE`, une analyse Work entre
-les missions, une correction ciblée suivie d'une nouvelle vérification en cas
+P2-1. La phase workflow est `VERIFY` pour la vérification Work de la PR. La
+boucle durable impose un plan de phase validé, un seul point actif, des
+missions séparées `EXECUTE`, `VERIFY` et `CLOSE`, une analyse Work entre les
+missions, une correction ciblée suivie d'une nouvelle vérification en cas
 d'échec et un arrêt en fin de phase.
 
-La règle GPU/épaisseur, son test et la modification préexistante du script de
-test sont conservés ; les changements restent uniquement dans le working tree
-et ne sont pas publiés. L'API publique reste limitée à `evaluateGpuCaseLength`.
-Aucun commit, push, PR, merge ou autre opération GitHub n'est lié à ce point.
-Aucune autre contrainte PC, agrégation ou publication Phase 2 n'est autorisée.
-Aucun point n'est actif. La prochaine mission est une nouvelle mission
-`INSPECT` de préparation à la publication contrôlée de la Phase 2 ; la
-fermeture de P2-PUB-1 ne ferme pas la Phase 2 produit.
+La règle GPU/épaisseur, son test et la modification du script de test sont
+publiés dans la PR brouillon ; la règle reste interne et aucun consommateur
+applicatif n'a été ajouté. L'API publique reste limitée à
+`evaluateGpuCaseLength`. Aucun merge, passage en prête, suppression de branche
+ou autre publication n'est autorisé. Aucun point produit supplémentaire n'est
+actif ; la prochaine étape est la vérification Work de la PR. La fermeture de
+P2-PUB-1 ne ferme pas la Phase 2 produit.
 
 ### Rapport historique précédent
 
