@@ -11,9 +11,9 @@
 
 ## 2. Phase actuelle du workflow
 
-**Phase :** `VERIFY`
+**Phase :** `CLOSE`
 
-Le contrat API TypeScript public de Phase 0 est fermé. La première vague de traduction française et les corrections documentaires associées ont été vérifiées et l'étape est fermée. Le renommage local vers le dépôt `FitMyLife/` et la réparation manuelle de la jonction npm sont vérifiés et fermés. Le renommage GitHub vers `FitMyLife` et la visibilité privée ont été vérifiés par Work et sont formellement fermés ; la permission administrateur et le remote local correct sont confirmés. La Phase 0 est terminée et validée par l'utilisateur. La PR n° 1 constitue son véhicule de publication et sa clôture GitHub s'effectue par le squash merge autorisé. Cet état de clôture est canonique lorsqu'il est présent sur `main` après le merge ; Git et GitHub restent la source de vérité du commit exact résultant. Aucune liste exhaustive auto-référentielle des commits de branche ni aucun hash futur de clôture n'est figé ici. L'implémentation et la vérification Work de la passerelle interne `My Stuff` GPU/boîtier sont terminées. La publication Phase 1 est portée par la branche `codex/phase-1` et la PR brouillon n° 2 (https://github.com/NoisyBoyFR/FitMyLife/pull/2). La phase courante du workflow est `VERIFY` ; la Phase 1 produit reste ouverte. La CI est configurée pour les pull requests vers `main` ; l'état exact de ses runs doit être consulté dans GitHub plutôt que figé ici. Aucun merge n'a été effectué. La prochaine étape est la vérification Work de la PR et de la CI. Aucune autre fonctionnalité Phase 1 ne doit commencer.
+Le contrat API TypeScript public de Phase 0 est fermé. La première vague de traduction française et les corrections documentaires associées ont été vérifiées et l'étape est fermée. Le renommage local vers le dépôt `FitMyLife/` et la réparation manuelle de la jonction npm sont vérifiés et fermés. Le renommage GitHub vers `FitMyLife` et la visibilité privée ont été vérifiés par Work et sont formellement fermés ; la permission administrateur et le remote local correct sont confirmés. La Phase 0 est terminée et validée par l'utilisateur ; sa publication a été portée par la PR n° 1. La passerelle interne `My Stuff` GPU/boîtier de Phase 1 est terminée, vérifiée et validée par l'utilisateur : elle reste étroite, en mémoire, délègue entièrement à `evaluateGpuCaseLength` et ne modifie pas l'API publique. La PR n° 2 constitue son véhicule de publication et le squash merge autorisé ; l'état exact du résultat est la source de vérité de Git et GitHub et cet état documentaire devient canonique sur `main` après le merge. La suite officielle contient 20 tests et la CI durable valide les futures pull requests vers `main`. Aucune liste exhaustive auto-référentielle des commits de branche ni aucun hash futur de clôture n'est figé ici. La phase courante du workflow est `CLOSE`. Aucune Phase 2 n'a commencé. La prochaine mission distincte est l'inspection de la présentation bilingue de l'accueil GitHub, en conservant l'anglais comme version canonique et `README.fr.md` comme miroir français.
 
 **Dernière mise à jour :** 2026-08-17
 
@@ -27,7 +27,7 @@ Le contrat API TypeScript public de Phase 0 est fermé. La première vague de tr
 
 **État publié :** les documents, la configuration npm et le Compatibility Engine de Phase 0 sont suivis dans le périmètre publié. `node_modules/` et `dist/` restent ignorés ; les trois fichiers locaux exclus restent non suivis et ne font pas partie du projet publié.
 
-La branche historique `codex/phase-0` a porté la publication contrôlée et la PR n° 1. Le squash merge autorisé vers `main` clôture cette publication ; son résultat exact doit être lu dans Git et GitHub. Aucun tag, release, issue ou changement de visibilité n'est requis par cette clôture. La passerelle interne GPU/boîtier est la seule tranche de Phase 1 actuellement implémentée ; l'étape technique est formellement fermée après sa vérification Work. Sa publication est ouverte en PR brouillon n° 2 sur `codex/phase-1`. La Phase 1 produit reste ouverte jusqu'à la vérification de la PR, de la CI et à sa clôture finale.
+La branche historique `codex/phase-0` a porté la publication contrôlée et la PR n° 1. Son résultat exact est consultable dans Git et GitHub. Aucun tag, release, issue ou changement de visibilité n'est requis par cette clôture. La passerelle interne GPU/boîtier est la seule tranche de Phase 1 implémentée ; l'étape technique et la validation de sa publication sont fermées. La PR n° 2 constitue le véhicule de publication de la Phase 1 et son squash merge autorisé rend cet état canonique sur `main`. Git et GitHub restent la source de vérité du commit de squash ; aucune liste exhaustive auto-référentielle des commits ni aucun hash futur n'est fixé ici. Aucun contenu de Phase 2 n'est commencé.
 
 ## 4. État technique réellement observé
 
@@ -91,14 +91,14 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 
 **Étape formellement fermée :** préparation documentaire de la publication Phase 0, vérifiée par Work.
 
-**Prochaine étape attendue :** vérification Work de la PR brouillon n° 2 et de la CI distante.
+**Prochaine étape attendue :** nouvelle mission `INSPECT` consacrée à la présentation bilingue de l'accueil GitHub, avec l'anglais canonique et `README.fr.md` comme miroir français.
 
-**Étape formellement fermée :** implémentation et vérification Work de la passerelle minimale `My Stuff` GPU/boîtier. La publication Phase 1 est ouverte en PR brouillon n° 2 ; la Phase 1 produit reste ouverte.
+**Étape formellement fermée :** implémentation, vérification et validation utilisateur de la passerelle minimale `My Stuff` GPU/boîtier. La Phase 1 est terminée ; la PR n° 2 en constitue le véhicule de publication et le squash merge autorisé.
 
 **Exclusions de publication :** `AGENTS.md`, `BOOTSTRAP-CODEX.txt`, `BOOTSTRAP-WORK.txt`, `node_modules/`, `dist/`, caches, fichiers temporaires, secrets et autres artefacts locaux ignorés.
-**Hors périmètre actuel :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM et recommandations d'achat. La seule tranche Phase 1 active est la passerelle interne limitée au GPU et au boîtier existant.
+**Hors périmètre actuel :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat et toute fonctionnalité de Phase 2. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant.
 
-Ne pas commencer une autre fonctionnalité de Phase 1 avant la vérification Work de la PR et de la CI, puis la clôture de la publication.
+Ne pas commencer de fonctionnalité de Phase 2. La prochaine mission porte uniquement sur l'inspection de la présentation bilingue de l'accueil GitHub.
 
 **Manifeste Phase 0 validé pour publication :**
 
@@ -123,10 +123,10 @@ Les risques produit, techniques et de sécurité sont désormais recensés dans 
 
 **Date :** 2026-08-17
 
-**Type :** publication contrôlée de la Phase 1 en PR brouillon
-**Statut :** `VERIFY — PR BROUILLON ET CI À VÉRIFIER`
+**Type :** clôture contrôlée de la Phase 1
+**Statut :** `CLOSE — PHASE 1 TERMINÉE ET VALIDÉE`
 
-Le dépôt `FitMyLife/` et la racine Git sont cohérents. La passerelle interne `My Stuff` GPU/boîtier a été implémentée et vérifiée par Work avec des contrats étroits en mémoire, une délégation complète à `evaluateGpuCaseLength`, aucune mutation et aucune modification de l'API publique. La commande officielle `npm test` exécute 20 tests, dont 10 tests Phase 0 et 10 tests de la passerelle. La branche `codex/phase-1` a été poussée et la PR brouillon n° 2 a été créée vers `main`. La CI est configurée pour les pull requests vers `main` ; l'état exact de ses runs doit être consulté dans GitHub. Aucun merge n'a été effectué. La Phase 1 produit reste ouverte jusqu'à la vérification Work de la PR et de la CI. Aucune autre fonctionnalité Phase 1 ne doit commencer.
+Le dépôt `FitMyLife/` et la racine Git sont cohérents. La passerelle interne `My Stuff` GPU/boîtier a été implémentée, vérifiée et validée par l'utilisateur avec des contrats étroits en mémoire, une délégation complète à `evaluateGpuCaseLength`, aucune mutation et aucune modification de l'API publique. La commande officielle `npm test` exécute 20 tests, dont 10 tests Phase 0 et 10 tests de la passerelle. La PR n° 2 constitue le véhicule de publication de cette tranche ; son squash merge autorisé et son résultat exact sont la source de vérité de Git et GitHub. La CI durable est configurée pour les futures pull requests vers `main`. La Phase 1 est fermée ; aucune Phase 2 n'a commencé. La prochaine mission distincte est l'inspection de la présentation bilingue de l'accueil GitHub.
 
 ## Règles de mise à jour
 
