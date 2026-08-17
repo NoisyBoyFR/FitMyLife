@@ -11,27 +11,27 @@
 
 ## 2. Phase actuelle du workflow
 
-**Phase :** `VERIFY`
+**Phase :** `CLOSE`
 
-Le contrat API TypeScript public de Phase 0 est fermé. La première vague de traduction française et les corrections documentaires associées ont été vérifiées et l'étape est fermée. Le renommage local vers le dépôt `FitMyLife/` et la réparation manuelle de la jonction npm sont vérifiés et fermés. Le renommage GitHub vers `FitMyLife` et la visibilité privée ont été vérifiés par Work et sont formellement fermés ; la permission administrateur, le remote local correct et le HEAD distant inchangé sont confirmés. La publication contrôlée de Phase 0 est effectuée et suivie sur `codex/phase-0`. Les commits `aebc2a03319e5e5d661fb9692f60140b3e667634` et `3141c2b048c5f940b85fcd4862fdbc1565279260` constituent les deux jalons substantiels connus ; `82dc928a090222772a3087bacb8af0aca5fce55e` et `3c830cfea6aec4144abc7cb79ca85cf14eadd61d` sont des jalons documentaires connus. L'historique complet et le HEAD courant doivent être lus dans Git et GitHub. La PR brouillon n° 1 reste ouverte. La Phase 0 produit reste ouverte jusqu'à la validation utilisateur, au merge autorisé et à la clôture finale ; aucun merge n'a été effectué.
+Le contrat API TypeScript public de Phase 0 est fermé. La première vague de traduction française et les corrections documentaires associées ont été vérifiées et l'étape est fermée. Le renommage local vers le dépôt `FitMyLife/` et la réparation manuelle de la jonction npm sont vérifiés et fermés. Le renommage GitHub vers `FitMyLife` et la visibilité privée ont été vérifiés par Work et sont formellement fermés ; la permission administrateur et le remote local correct sont confirmés. La Phase 0 est terminée et validée par l'utilisateur. La PR n° 1 constitue son véhicule de publication et sa clôture GitHub s'effectue par le squash merge autorisé. Cet état de clôture est canonique lorsqu'il est présent sur `main` après le merge ; Git et GitHub restent la source de vérité du commit exact résultant. Aucune liste exhaustive auto-référentielle des commits de branche ni aucun hash futur de clôture n'est figé ici. Aucune fonctionnalité de Phase 1 n'est validée ou commencée.
 
 **Dernière mise à jour :** 2026-08-17
 
 ## 3. Référence Git et état de publication
 
-**Branche de publication :** `codex/phase-0`
+**Branche de publication historique :** `codex/phase-0`
 
 **HEAD de base de `main` :** `1d7faca4bd414723ae99b1c3e73d97cd6680cd03` — `Initialize FitMyLife`
 
-**HEAD de la branche de publication :** à inspecter dans Git et GitHub ; ce document ne fige pas le HEAD courant de sa propre branche.
+**Historique et HEAD de publication :** à inspecter dans Git et GitHub ; ce document ne fige ni le HEAD courant de sa propre branche ni le hash du futur squash merge.
 
-**État local :** les documents, la configuration npm et le Compatibility Engine de Phase 0 sont suivis et publiés sur `codex/phase-0`. `node_modules/` et `dist/` restent ignorés ; les trois fichiers locaux exclus restent non suivis.
+**État publié :** les documents, la configuration npm et le Compatibility Engine de Phase 0 sont suivis dans le périmètre publié. `node_modules/` et `dist/` restent ignorés ; les trois fichiers locaux exclus restent non suivis et ne font pas partie du projet publié.
 
-La branche `codex/phase-0` a été poussée avec les changements de publication et des jalons documentaires d'état. La PR brouillon n° 1 cible `main` et se trouve à l'adresse `https://github.com/NoisyBoyFR/FitMyLife/pull/1`. `main` reste inchangée. Aucun merge, tag, release, issue ou changement de visibilité n'a été réalisé. La prochaine étape est la vérification indépendante de la PR par Work, puis la décision utilisateur.
+La branche historique `codex/phase-0` a porté la publication contrôlée et la PR n° 1. Le squash merge autorisé vers `main` clôture cette publication ; son résultat exact doit être lu dans Git et GitHub. Aucun tag, release, issue ou changement de visibilité n'est requis par cette clôture. La prochaine phase doit commencer par une nouvelle mission `INSPECT` ; aucune fonctionnalité de Phase 1 n'est encore validée ou commencée.
 
 ## 4. État technique réellement observé
 
-- Les documents techniques et produit de Phase 0 sont désormais suivis sur la branche de publication `codex/phase-0` ; `architecture.md` et `privacy-and-security.md` proviennent de la base et les documents produit ont été ajoutés par la publication.
+- Les documents techniques et produit de Phase 0 sont désormais suivis dans l'état publié ; `architecture.md` et `privacy-and-security.md` proviennent de la base et les documents produit ont été ajoutés par la publication.
 - Package READMEs pour `compatibility-engine`, `affordability-engine`, `location-engine` et `providers`.
 - Contrat TypeScript initial `packages/providers/src/provider-adapter.ts`.
 - Backlog dans `TASKS.md`.
@@ -73,7 +73,7 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 - Workspace local actuel : dépôt `FitMyLife/`. L'ancien nom local du dossier est conservé uniquement comme historique documentaire.
 - La jonction `node_modules/@fitmylife/compatibility-engine` est de type `Junction` vers `packages/compatibility-engine`.
 - Depuis une nouvelle tâche correctement rattachée à ce workspace, le build, le typecheck, les 10 tests, l'import public du package et les déclarations TypeScript générées ont réussi.
-- Repository canonique : `https://github.com/NoisyBoyFR/FitMyLife`. L'ancien nom `fitmylife` est conservé uniquement comme historique ; `main` reste à `1d7faca4bd414723ae99b1c3e73d97cd6680cd03`. La publication contrôlée est portée par `codex/phase-0`, ses deux jalons substantiels, ses jalons documentaires connus et la PR brouillon n° 1.
+- Repository canonique : `https://github.com/NoisyBoyFR/FitMyLife`. L'ancien nom `fitmylife` est conservé uniquement comme historique. La publication contrôlée est portée par la PR n° 1 et son squash merge autorisé ; son historique et le commit exact résultant sont consultables dans Git et GitHub.
 - Le renommage GitHub et la visibilité privée sont vérifiés par Work et formellement fermés.
 
 `.ai-workflow/DEFERRED-ISSUES.md` n'a pas été modifié : l'inspection n'a révélé aucun défaut reporté nécessitant une nouvelle entrée durable.
@@ -88,12 +88,12 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 
 **Étape formellement fermée :** préparation documentaire de la publication Phase 0, vérifiée par Work.
 
-**Prochaine étape attendue :** vérification indépendante de la PR brouillon n° 1 par Work, puis décision utilisateur.
+**Prochaine étape attendue :** nouvelle mission `INSPECT` pour la phase suivante, après cette clôture. Aucune fonctionnalité de Phase 1 n'est validée ou commencée.
 
 **Exclusions de publication :** `AGENTS.md`, `BOOTSTRAP-CODEX.txt`, `BOOTSTRAP-WORK.txt`, `node_modules/`, `dist/`, caches, fichiers temporaires, secrets et autres artefacts locaux ignorés.
 **Hors périmètre actuel :** moteur complet, autres règles PC, `My Stuff`, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM et recommandations d'achat.
 
-Ne pas commencer une fonctionnalité avant cette inspection et les arbitrages correspondants.
+Ne pas commencer une fonctionnalité de Phase 1 avant une nouvelle mission `INSPECT` et les arbitrages correspondants.
 
 **Manifeste Phase 0 validé pour publication :**
 
@@ -118,10 +118,10 @@ Les risques produit, techniques et de sécurité sont désormais recensés dans 
 
 **Date :** 2026-08-17
 
-**Type :** publication contrôlée de Phase 0 et création d'une PR brouillon
-**Statut :** `PHASE 0 PUBLIÉE EN PR BROUILLON — À VÉRIFIER PAR WORK`
+**Type :** clôture documentaire de Phase 0 et squash merge autorisé
+**Statut :** `PHASE 0 TERMINÉE ET VALIDÉE — CLÔTURE PAR SQUASH MERGE`
 
-Le dépôt local `FitMyLife/` et la racine Git sont cohérents. Le repository canonique est `https://github.com/NoisyBoyFR/FitMyLife`, l'ancien nom `fitmylife` étant conservé uniquement comme historique. La publication contrôlée est portée par `codex/phase-0` ; les deux jalons substantiels et les jalons documentaires connus sont consultables dans Git et GitHub. La PR brouillon n° 1 cible `main` à l'adresse `https://github.com/NoisyBoyFR/FitMyLife/pull/1`. Le build, le typecheck, les 10 tests, l'import public, les déclarations TypeScript et `git diff --check` ont réussi. Aucun merge n'a été effectué. La Phase 0 reste ouverte pour la vérification Work et la validation utilisateur.
+Le dépôt `FitMyLife/` et la racine Git sont cohérents. Le repository canonique est `https://github.com/NoisyBoyFR/FitMyLife`, l'ancien nom `fitmylife` étant conservé uniquement comme historique. La publication contrôlée est portée par la PR n° 1 et son squash merge autorisé vers `main`. Le build, le typecheck, les 10 tests, l'import public, les déclarations TypeScript et `git diff --check` ont réussi. Git et GitHub doivent être consultés pour l'état courant de la PR et le commit exact résultant ; ce document n'en fige pas le hash. Aucune fonctionnalité de Phase 1 n'est validée ou commencée.
 
 ## Règles de mise à jour
 

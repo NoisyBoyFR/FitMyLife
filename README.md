@@ -21,7 +21,7 @@ The historical recommended delivery order is:
 9. Financial Context
 10. Services (ISP, insurance, automotive)
 
-This order remains a roadmap direction, not a firm implementation commitment. The first approved technical slice and its public TypeScript contract are now implemented, tested, and verified. The contract step is `CLOSE`; the French documentation mirrors have been verified and this documentation step is closed. The Phase 0 product remains open.
+This order remains a roadmap direction, not a firm implementation commitment. The first approved technical slice and its public TypeScript contract are now implemented, tested, and verified. The contract step is `CLOSE`; the French documentation mirrors have been verified and this documentation step is closed. Phase 0 is complete and user-validated; its publication vehicle is PR #1 and its authorized GitHub closure is a squash merge. Git and GitHub remain the source of truth for the resulting commit. No Phase 1 feature is validated or started.
 
 ## Principles
 
@@ -59,10 +59,10 @@ For a new Work conversation, start by reading `.ai-workflow/START-HERE.md` and t
 
 ## Current workspace verification
 
-The local workspace is the `FitMyLife/` repository. The former local folder name is retained only as historical context. The local rename and npm environment repair were performed manually, verified, and closed. The GitHub rename to `NoisyBoyFR/FitMyLife` and its private visibility have been verified and formally closed; the local remote is correct. Phase 0 has been published on the dedicated `codex/phase-0` branch: `aebc2a0` and `3141c2b` are the two substantive commits, followed by `82dc928` recording the publication state, with draft PR [#1](https://github.com/NoisyBoyFR/FitMyLife/pull/1). The PR remains open for Work verification and user validation; no merge has occurred.
+The local workspace is the `FitMyLife/` repository. The former local folder name is retained only as historical context. The local rename and npm environment repair were performed manually, verified, and closed. The GitHub rename to `NoisyBoyFR/FitMyLife` and its private visibility have been verified and formally closed; the local remote is correct. Phase 0 was published through the dedicated `codex/phase-0` branch and PR [#1](https://github.com/NoisyBoyFR/FitMyLife/pull/1), whose authorized GitHub closure is a squash merge. The exact branch history and resulting commit remain readable in Git and GitHub rather than being exhaustively fixed in this document. The excluded local files are not part of the published project.
 
 ## Status
 
-This repository establishes product, architecture, and privacy guardrails. The first approved Compatibility Engine slice is now implemented and tested: deterministic GPU length versus effective case space. The complete engine and subsequent features remain subject to verification and further user validation. The next step is independent Work verification of [draft PR #1](https://github.com/NoisyBoyFR/FitMyLife/pull/1), followed by user validation and the later decision to merge and close Phase 0.
+This repository establishes product, architecture, and privacy guardrails. The first approved Compatibility Engine slice is now implemented and tested: deterministic GPU length versus effective case space. Phase 0 is complete and user-validated; its closure is represented by PR [#1](https://github.com/NoisyBoyFR/FitMyLife/pull/1) and the authorized squash merge to `main`. The complete engine and subsequent features remain outside this phase. The next phase must begin with a new `INSPECT` mission; no Phase 1 feature has been validated or started.
 
 See [the product vision](docs/product-vision.md), [product scope and roadmap](docs/product-scope-and-roadmap.md), [decision framework](docs/decision-framework.md), [architecture guardrails](docs/architecture.md), [privacy and security rules](docs/privacy-and-security.md), and [the backlog](TASKS.md).
