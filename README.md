@@ -1,12 +1,14 @@
 # FitMyLife
 
+> [Version française](README.fr.md) — English remains the canonical documentation.
+
 FitMyLife helps people choose products and services that fit their real life—not merely their technical requirements.
 
 ## Product direction
 
 A recommendation can combine technical compatibility, existing equipment, household needs, available time, location, delivery, true cost, and optional financial context. Each dimension remains visible and explainable; a single opaque score is not enough.
 
-The initial delivery order is:
+The historical recommended delivery order is:
 
 1. Compatibility Engine
 2. My Stuff
@@ -18,6 +20,8 @@ The initial delivery order is:
 8. Household and Life Context
 9. Financial Context
 10. Services (ISP, insurance, automotive)
+
+This order remains a roadmap direction, not a firm implementation commitment. The first approved technical slice and its public TypeScript contract are now implemented, tested, and verified. The contract step is `CLOSE`; the French documentation mirrors have been verified and this documentation step is closed. The Phase 0 product remains open.
 
 ## Principles
 
@@ -37,12 +41,28 @@ packages/
   providers/             # provider-adapter contracts
 docs/
   architecture.md
+  decision-framework.md
   privacy-and-security.md
+  product-scope-and-roadmap.md
+  product-vision.md
+.ai-workflow/            # Work ↔ Codex development protocol
 TASKS.md                 # product backlog
 ```
 
+## Development workflow
+
+This repository uses the Work ↔ Codex development loop. The durable protocol is defined by [.ai-workflow/START-HERE.md](.ai-workflow/START-HERE.md) and the files it references.
+
+The cycle is `INSPECT → DECISION → EXECUTE → VERIFY → CLOSE → INSPECT`. Do not begin product implementation during `INSPECT` without explicit user validation.
+
+For a new Work conversation, start by reading `.ai-workflow/START-HERE.md` and the files it references. For a new Codex session, inspect the real repository state and the `.ai-workflow/` context before acting.
+
+## Current workspace verification
+
+The local workspace is the `FitMyLife/` repository. The former local folder name is retained only as historical context. The local rename and npm environment repair were performed manually, verified, and closed. The GitHub rename to `NoisyBoyFR/FitMyLife` and its private visibility have been verified and formally closed; the local remote is correct. The Phase 0 publication manifest is validated, and this documentary preparation is formally closed. The product phase remains open until controlled publication and final closure.
+
 ## Status
 
-This repository establishes the architecture and privacy guardrails. Product implementation begins with the Compatibility Engine.
+This repository establishes product, architecture, and privacy guardrails. The first approved Compatibility Engine slice is now implemented and tested: deterministic GPU length versus effective case space. The complete engine and subsequent features remain subject to verification and further user validation. The next distinct mission is controlled Phase 0 publication through the dedicated `codex/phase-0` branch and a pull request, followed by final phase closure.
 
-See [the architecture](docs/architecture.md), [privacy and security rules](docs/privacy-and-security.md), and [the backlog](TASKS.md).
+See [the product vision](docs/product-vision.md), [product scope and roadmap](docs/product-scope-and-roadmap.md), [decision framework](docs/decision-framework.md), [architecture guardrails](docs/architecture.md), [privacy and security rules](docs/privacy-and-security.md), and [the backlog](TASKS.md).
