@@ -11,9 +11,9 @@
 
 ## 2. Phase actuelle du workflow
 
-**Phase :** `VERIFY`
+**Phase :** `CLOSE`
 
-Le contrat API TypeScript public de Phase 0 est fermé. La première vague de traduction française et les corrections documentaires associées ont été vérifiées et l'étape est fermée. Le renommage local vers le dépôt `FitMyLife/` et la réparation manuelle de la jonction npm sont vérifiés et fermés. Le renommage GitHub vers `FitMyLife` et la visibilité privée ont été vérifiés par Work et sont formellement fermés ; la permission administrateur et le remote local correct sont confirmés. La Phase 0 est terminée et validée par l'utilisateur ; sa publication a été portée par la PR n° 1. La passerelle interne `My Stuff` GPU/boîtier de Phase 1 est terminée, vérifiée et validée par l'utilisateur : elle reste étroite, en mémoire, délègue entièrement à `evaluateGpuCaseLength` et ne modifie pas l'API publique. La PR n° 2 constitue son véhicule de publication et le squash merge autorisé ; l'état exact du résultat est la source de vérité de Git et GitHub et cet état documentaire devient canonique sur `main` après le merge. La suite officielle contient 20 tests et la CI durable valide les futures pull requests vers `main`. Aucune liste exhaustive auto-référentielle des commits de branche ni aucun hash futur de clôture n'est figé ici. La présentation bilingue de l'accueil GitHub est publiée sur `codex/bilingual-github-home` et portée par la PR brouillon n° 3 (https://github.com/NoisyBoyFR/FitMyLife/pull/3). La phase courante du workflow est `VERIFY` ; la CI applicable et l'état exact de son run doivent être consultés dans GitHub. La description GitHub et les topics restent inchangés ; aucun tag ni release n'a été créé. Aucune Phase 2 n'a commencé. La prochaine étape est la vérification Work du rendu, de la PR et de la CI.
+Le contrat API TypeScript public de Phase 0 est fermé. La première vague de traduction française et les corrections documentaires associées ont été vérifiées et l'étape est fermée. Le renommage local vers le dépôt `FitMyLife/` et la réparation manuelle de la jonction npm sont vérifiés et fermés. Le renommage GitHub vers `FitMyLife` et la visibilité privée ont été vérifiés par Work et sont formellement fermés ; la permission administrateur et le remote local correct sont confirmés. La Phase 0 est terminée et validée par l'utilisateur ; sa publication a été portée par la PR n° 1. La passerelle interne `My Stuff` GPU/boîtier de Phase 1 est terminée, vérifiée et validée par l'utilisateur : elle reste étroite, en mémoire, délègue entièrement à `evaluateGpuCaseLength` et ne modifie pas l'API publique. La PR n° 2 constitue son véhicule de publication et son squash merge est enregistré par Git et GitHub. La suite officielle contient 20 tests et la CI durable valide les futures pull requests vers `main`. Aucune liste exhaustive auto-référentielle des commits de branche ni aucun hash futur de clôture n'est figé ici. L'accueil GitHub bilingue est terminé, vérifié et validé par l'utilisateur : les résumés anglais et français sont directement visibles, `README.md` reste canonique en anglais et `README.fr.md` reste le miroir français complet. La PR n° 3 constitue son véhicule de publication et son squash merge autorisé rend cet état canonique sur `main` après le merge ; Git et GitHub restent la source de vérité du commit résultant. La description GitHub et les topics restent inchangés ; aucun tag ni release n'a été créé. La phase courante du workflow est `CLOSE`. Aucun contenu de Phase 2 n'est commencé. La prochaine étape est une nouvelle mission `INSPECT` avant toute décision de Phase 2.
 
 **Dernière mise à jour :** 2026-08-17
 
@@ -91,14 +91,14 @@ Les éléments suivants sont documentés dans `docs/` avec leur statut explicite
 
 **Étape formellement fermée :** préparation documentaire de la publication Phase 0, vérifiée par Work.
 
-**Prochaine étape attendue :** vérification Work du rendu de l'accueil bilingue, de la PR brouillon n° 3 et de la CI distante.
+**Prochaine étape attendue :** nouvelle mission `INSPECT` avant toute décision de Phase 2.
 
 **Étape formellement fermée :** implémentation, vérification et validation utilisateur de la passerelle minimale `My Stuff` GPU/boîtier. La Phase 1 est terminée ; la PR n° 2 en constitue le véhicule de publication et le squash merge autorisé.
 
 **Exclusions de publication :** `AGENTS.md`, `BOOTSTRAP-CODEX.txt`, `BOOTSTRAP-WORK.txt`, `node_modules/`, `dist/`, caches, fichiers temporaires, secrets et autres artefacts locaux ignorés.
 **Hors périmètre actuel :** moteur complet, autres règles PC, modèle `My Stuff` générique, inventaire, catalogue, providers, UI, API HTTP ou service réseau, persistance, authentification, scoring, LLM, recommandations d'achat et toute fonctionnalité de Phase 2. La seule tranche Phase 1 implémentée est la passerelle interne limitée au GPU et au boîtier existant.
 
-Ne pas commencer de fonctionnalité de Phase 2. La mission actuelle est limitée à la vérification du rendu de l'accueil bilingue, de la PR brouillon n° 3 et de la CI.
+Ne pas commencer de fonctionnalité de Phase 2. La prochaine mission doit être une nouvelle `INSPECT` dédiée à l'état réel du projet avant toute décision produit ou technique.
 
 **Manifeste Phase 0 validé pour publication :**
 
@@ -123,10 +123,10 @@ Les risques produit, techniques et de sécurité sont désormais recensés dans 
 
 **Date :** 2026-08-17
 
-**Type :** publication contrôlée de l'accueil GitHub bilingue
-**Statut :** `VERIFY — PR BROUILLON ET CI À VÉRIFIER`
+**Type :** clôture contrôlée de l'accueil GitHub bilingue
+**Statut :** `CLOSE — ACCUEIL GITHUB BILINGUE TERMINÉ ET VALIDÉ`
 
-Le dépôt `FitMyLife/` et la racine Git sont cohérents. La passerelle interne `My Stuff` GPU/boîtier de Phase 1 reste terminée, vérifiée et validée par l'utilisateur ; la Phase 1 est fermée et aucune Phase 2 n'a commencé. L'introduction compacte de l'accueil GitHub rend désormais visibles les résumés anglais et français, conserve l'anglais comme canonique et conserve `README.fr.md` comme miroir français complet. La publication est portée par `codex/bilingual-github-home` et la PR brouillon n° 3 (https://github.com/NoisyBoyFR/FitMyLife/pull/3). La CI durable est applicable à cette PR ; son état exact doit être vérifié dans GitHub. La description GitHub, les topics, les tags et les releases restent inchangés. La prochaine étape est la vérification Work du rendu, de la PR et de la CI ; aucun merge n'est effectué.
+Le dépôt `FitMyLife/` et la racine Git sont cohérents. La passerelle interne `My Stuff` GPU/boîtier de Phase 1 reste terminée, vérifiée et validée par l'utilisateur ; la Phase 1 est fermée et aucune Phase 2 n'a commencé. L'introduction compacte de l'accueil GitHub rend directement visibles les résumés anglais et français, conserve l'anglais comme canonique et conserve `README.fr.md` comme miroir français complet. La PR n° 3 constitue le véhicule de publication de cette étape et son squash merge autorisé rend cet état canonique sur `main` après le merge. Git et GitHub restent la source de vérité du commit résultant ; aucun hash futur ni total auto-référentiel de commits n'est figé. La description GitHub et les topics restent inchangés, aucun tag ou release n'a été créé, et aucune Phase 2 n'a commencé. La prochaine étape est une nouvelle mission `INSPECT` avant toute décision de Phase 2.
 
 ## Règles de mise à jour
 
