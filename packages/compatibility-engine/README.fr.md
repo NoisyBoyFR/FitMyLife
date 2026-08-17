@@ -33,6 +33,25 @@ Les exports publics sont :
 - `GpuCaseLengthEvidence` ;
 - `GpuCaseLengthResult`.
 
+## Passerelle interne My Stuff GPU/boîtier
+
+La Phase 1 ajoute une passerelle interne volontairement étroite dans
+`src/my-stuff-gpu-case.ts`. Elle représente uniquement les deux faits en
+mémoire nécessaires à la première tranche PC de `My Stuff` :
+
+- la longueur d'un GPU candidat en millimètres ;
+- l'espace GPU effectif disponible dans le boîtier existant, en millimètres.
+
+La passerelle mappe ces faits vers `GpuCaseLengthInput` et délègue
+l'évaluation complète à `evaluateGpuCaseLength`. Elle n'ajoute aucune
+validation, aucun seuil, score, avertissement ou règle de compatibilité. Les
+objets candidat et boîtier sont traités en lecture seule ; aucun I/O, aucune
+persistance et aucun traitement asynchrone ne sont effectués.
+
+Cette passerelle est un détail d'implémentation interne. Elle n'est pas
+exportée par le point d'entrée du package, ne modifie pas l'API publique et ne
+modélise ni un PC générique ni un inventaire `My Stuff` complet.
+
 ## Contrat d'entrée
 
 `GpuCaseLengthInput` contient uniquement ces deux faits optionnels :
@@ -84,4 +103,10 @@ Les valeurs absentes et invalides ont des codes de raison distincts. La preuve i
 
 ## Périmètre et limites
 
-Ce package exclut volontairement les règles de compatibilité supplémentaires, l'agrégation de règles, un moteur de règles générique, les produits et offres, `My Stuff`, les besoins utilisateur, les recommandations, les scores, les providers, la persistance, HTTP, l'authentification, l'UI, les extensions navigateur, les LLM et l'infrastructure de localisation.
+Ce package exclut volontairement les règles de compatibilité supplémentaires,
+l'agrégation de règles, un moteur de règles générique, un modèle `My Stuff`
+générique, les produits et offres, les besoins utilisateur, les
+recommandations, les scores, les providers, la persistance, HTTP,
+l'authentification, l'UI, les extensions navigateur, les LLM et
+l'infrastructure de localisation. La passerelle interne reste limitée aux
+deux faits GPU/boîtier décrits ci-dessus.
