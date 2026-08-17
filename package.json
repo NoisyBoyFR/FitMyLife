@@ -8,5 +8,9 @@
   ],
   "engines": {
     "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "npm run typecheck --workspace=@fitmylife/compatibility-engine",
+    "test": "npm run test --workspace=@fitmylife/compatibility-engine"
   }
 }

@@ -1,35 +1,62 @@
-# Architecture
+# Architecture guardrails and current baseline
 
-## Recommendation model
+> [French translation](fr/architecture.md) — English remains the canonical documentation.
 
-FitMyLife evaluates independent dimensions, then produces an explicit recommendation:
+This document records product-level constraints and the small amount of technical structure actually present in the repository. It is not a final application architecture. No frontend, backend, database, deployment target, or concrete framework has been validated.
+
+## Repository baseline
+
+The initial documentation inspection observed package directories with README placeholders and one TypeScript `ProviderAdapter` interface. Since then, the repository has gained one bounded executable `Compatibility Engine` rule comparing candidate GPU length with effective case space, together with automated tests. There is still no complete compatibility engine, product interface, backend, database, or provider integration.
+
+## Need-centred recommendation model
+
+FitMyLife starts from the need or problem, not from a provider offer:
 
 ```text
-Product or service
-  ├─ Technical Compatibility
-  ├─ Existing Equipment
-  ├─ Household and Usage Context
-  ├─ Professional and Time Context
-  ├─ Financial Fit (optional)
-  ├─ Location, Availability and Logistics
-  ├─ True Cost of Ownership
-  └─ Value and Confidence
-             ↓
-       Explainable recommendation
+Need or problem
+  -> Existing environment (`My Stuff`)
+  -> Goals, constraints, and missing information
+  -> Candidate solutions
+  -> Candidate evaluation
+  -> Explainable decision
+  -> Relevant providers and offers
 ```
 
-No dimension may silently overwrite another: a technically perfect product can remain unaffordable or impractical to obtain.
+For each candidate solution, the evaluation can keep independent dimensions visible:
+
+```text
+Candidate solution
+  ├─ Technical Compatibility
+  ├─ Existing Equipment
+  ├─ Need or Relevance Fit
+  ├─ Financial Fit (future, optional)
+  ├─ Household and Usage Context (future)
+  ├─ Professional and Time Context (future)
+  ├─ Location, Availability and Logistics (future)
+  ├─ True Cost of Ownership (future)
+  └─ Value and Confidence
+             ↓
+       Explainable candidate assessment
+```
+
+No dimension may silently overwrite another: a technically perfect candidate can remain unaffordable or impractical to obtain. This is a product-level evaluation model, not an implemented orchestration architecture.
 
 ## Core contexts
 
-`LifeContext` is opt-in and can hold household, professional, usage, time, and preference information. `FinancialProfile` is strictly optional and supports minimal budget, intermediate income/expenses, and advanced profiles. `LocationProfile` supports country through exact location, and must use the least precise level needed.
+- `LifeContext` — `FUTUR`, optional; its shape and technical model are `À DÉCIDER`.
+- `FinancialProfile` — `FUTUR`, strictly optional; its shape and technical model are `À DÉCIDER`.
+- `LocationProfile` or an equivalent — `FUTUR`, privacy-first; its shape, precision levels, and technical model are `À DÉCIDER`.
 
-## Packages
+The package placeholders present in the repository do not mean that these contexts or their capabilities are implemented.
+
+## Intended package responsibilities
 
 - `compatibility-engine`: evaluates technical and existing-equipment fit.
 - `affordability-engine`: independently assesses whether an optional financial context supports a purchase; it is not financial advice.
 - `location-engine`: compares proximity, travel, delivery, local availability, and travel cost.
-- `providers`: common adapter contract for permitted product and service data sources.
+- `providers`: common adapter contract for permitted product and service data sources. The exact contract is still `À DÉCIDER`.
+
+These names describe intended responsibilities, not completed implementation boundaries. The product modules and architecture choices described in the product documents remain subject to later inspection and user validation.
 
 ## Provider contract
 
@@ -47,6 +74,18 @@ export interface ProviderAdapter {
 }
 ```
 
-## True cost
+## Provider and data guardrails
 
-`True Cost = product + delivery + travel + parking/tolls + required accessories + installation + subscriptions + consumables + maintenance + insurance + financing − discounts − cashback − estimated resale value`.
+Provider integrations must remain replaceable and must prefer official or authorised data sources. External facts need provenance, freshness, confidence, and last-verification information. A canonical catalog, `Product` / `Offer` split, identifier strategy, market model, and retention/licensing model are `ENVISAGÉ` or `À DÉCIDER`, not established implementation contracts.
+
+## True cost — `FUTUR`
+
+The following is an illustrative set of factors, not a final mathematical model:
+
+```text
+purchase + delivery + travel + parking/tolls + required accessories
++ installation + subscriptions + consumables + maintenance + insurance
++ financing − discounts − cashback − estimated resale value
+```
+
+The separation between acquisition cost and ownership cost, and between exact values, estimates, projections, and values supplied by the user, remains `ENVISAGÉ` / `À DÉCIDER`.
